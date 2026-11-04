@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bentley Torcal · Thế giới mới của nghệ thuật chế tác</title>
+<meta name="description" content="Torcal, chiếc Bentley thuần điện đầu tiên và là chiếc Bentley sản xuất mạnh nhất từ trước đến nay. Đăng ký tư vấn hoặc nhận brochure chính thức.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   BENTLEY TORCAL · Bản dựng vòng 2 (GĐ3 + GĐ4 gộp) · 05/11/2026
+   Màu thật, motif, mask, chuyển động theo DESIGN-RULES v1 + specimen v3.
+   Ảnh: bản gốc độ phân giải cao, căn khung tự động theo vùng xe (data-f).
+   ========================================================= */
+@font-face{font-family:'Blair ITC';src:url('assets/fonts/blair-itc-bold.otf') format('opentype');font-weight:700;font-display:swap}
+:root{
+  --c-onyx:#0E0E0F; --c-graphite:#1A1A1C; --c-carbon:#2B2B2E;
+  --c-porcelain:#F4F2EE; --c-studio:#E6E3DD; --c-white:#FFFFFF;
+  --c-stone:#5C5A56; --c-ash:#A8A39B;
+  --c-slate:#335B4C; --c-slate-mist:#7FA897; --c-slate-deep:#24423A;
+  --line-l:rgba(14,14,15,.12); --line-d:rgba(255,255,255,.14);
+  --f-d:'Josefin Sans',sans-serif; --f-b:'Mulish',sans-serif; --f-n:'Blair ITC','Josefin Sans',sans-serif;
+  --u:min(1vw,1.75vh);
+  --fs-display:clamp(2.4rem, calc(.6rem + 3.6*var(--u)), 5.25rem);
+  --fs-h2:clamp(1.75rem, calc(.7rem + 2.7*var(--u)), 3.4rem);
+  --fs-h3:clamp(1.35rem, calc(.85rem + 1.3*var(--u)), 2.1rem);
+  --fs-h4:clamp(1.06rem, calc(.95rem + .45*var(--u)), 1.4rem);
+  --fs-lead:clamp(1rem, calc(.92rem + .36*var(--u)), 1.25rem);
+  --fs-body:clamp(.95rem, calc(.92rem + .1*var(--u)), 1.04rem);
+  --fs-small:clamp(.8125rem, calc(.78rem + .1*var(--u)), .9rem);
+  --fs-label:clamp(.6875rem, calc(.64rem + .14*var(--u)), .8125rem);
+  --fs-stat:clamp(2rem, calc(.7rem + 3.9*var(--u)), 4.75rem);
+  --hh:76px;
+  --gx:clamp(20px,5vw,96px);
+  --sy:clamp(20px,5.5vh,88px);
+  --g1:clamp(6px,1.2vh,14px); --g2:clamp(10px,2vh,22px); --g3:clamp(16px,3.2vh,36px); --g4:clamp(24px,5vh,56px);
+  --wrap:1680px;
+  --t-fast:240ms; --t-base:600ms; --t-slow:1200ms; --t-cinema:2200ms; --stagger:180ms;
+  --ease-glide:cubic-bezier(.22,.61,.36,1); --ease-inout:cubic-bezier(.65,0,.35,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--f-b);font-size:var(--fs-body);line-height:1.6;color:var(--c-onyx);background:var(--c-onyx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;text-align:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--c-slate-mist);outline-offset:3px}
+
+/* ---------- Type ---------- */
+.display,.h2,.h3{font-family:var(--f-d);font-weight:300;letter-spacing:-.005em}
+.display{font-size:var(--fs-display);line-height:1.08}
+.h2{font-size:var(--fs-h2);line-height:1.12}
+.h3{font-size:var(--fs-h3);line-height:1.2}
+.h4{font-family:var(--f-b);font-weight:500;font-size:var(--fs-h4);line-height:1.3}
+.lead{font-size:var(--fs-lead);line-height:1.55}
+.small{font-size:var(--fs-small);line-height:1.55}
+.label{font-family:var(--f-b);font-size:var(--fs-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.25}
+.stat{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15em .4em;line-height:1}
+.stat .n{font-family:var(--f-n);font-weight:700;font-size:var(--fs-stat);letter-spacing:.02em;font-variant-numeric:lining-nums}
+.stat .u{font-family:var(--f-b);font-size:var(--fs-small);font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.measure{max-width:34em}
+.on-dark{color:var(--c-porcelain)} .on-dark .muted{color:var(--c-ash)} .on-dark .accent{color:var(--c-slate-mist)}
+.on-light{color:var(--c-onyx)} .on-light .muted{color:var(--c-stone)} .on-light .accent{color:var(--c-slate)}
+.eyebrow{display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.stack{display:grid;gap:var(--g1);align-content:start}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.75em;min-height:48px;padding:0 1.6em;border-radius:0;font-family:var(--f-b);font-size:var(--fs-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid currentColor;white-space:nowrap;transition:background var(--t-fast) var(--ease-glide),color var(--t-fast),border-color var(--t-fast)}
+.btn--primary{background:var(--c-slate);color:var(--c-white);border-color:var(--c-slate)}
+.btn--primary:hover{background:var(--c-slate-deep);border-color:var(--c-slate-deep)}
+.on-dark .btn--primary{border-color:rgba(127,168,151,.55)}
+.on-dark .btn--secondary{color:var(--c-porcelain);border-color:rgba(244,242,238,.6)}
+.on-dark .btn--secondary:hover{border-color:var(--c-porcelain);background:rgba(244,242,238,.08)}
+.on-light .btn--secondary{color:var(--c-onyx);border-color:rgba(14,14,15,.55)}
+.on-light .btn--secondary:hover{border-color:var(--c-onyx);background:rgba(14,14,15,.04)}
+.link{font-family:var(--f-b);font-size:var(--fs-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;padding-bottom:4px;transition:background-size var(--t-base) var(--ease-glide),color var(--t-fast)}
+.link:hover{background-size:100% 1px}
+.on-light .link:hover{color:var(--c-slate)} .on-dark .link:hover{color:var(--c-slate-mist)}
+.link::after{content:" \2192"}
+.ctas{display:flex;flex-wrap:nowrap;gap:12px;width:max-content;max-width:calc(100vw - 2*var(--gx))}
+.ctas .btn{padding:0 1.3em}
+@media (max-width:560px){.ctas{width:100%}.ctas .btn{flex:1 1 0;min-width:0;white-space:normal;text-align:center;line-height:1.35;padding:10px .8em;letter-spacing:.12em}}
+
+/* ---------- Sections + snap ---------- */
+.wrap{width:min(100% - 2*var(--gx), var(--wrap));margin-inline:auto}
+.sec{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;padding-top:calc(var(--hh) + var(--sy));padding-bottom:var(--sy)}
+.sec > .wrap{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;position:relative;z-index:3}
+.sec.bleed{padding:0}
+@media (min-width:1024px) and (min-height:600px) and (min-aspect-ratio:1/1){
+  html{scroll-snap-type:y mandatory}
+  .sec{height:100dvh;min-height:0;scroll-snap-align:start}
+  .foot{scroll-snap-align:end}
+}
+@media (max-width:1023.98px), (max-height:599.98px), (max-aspect-ratio:1/1){
+  html{scroll-snap-type:y proximity}
+  .sec{scroll-snap-align:start}
+  :root{--hh:64px}
+}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.sec{padding-bottom:calc(var(--sy) + 52px)}.sec.bleed{padding:0 0 52px}}
+html.menu-open,html.js-snap{scroll-snap-type:none!important}
+html.menu-open body{overflow:hidden}
+.s-onyx{background:var(--c-onyx)} .s-graphite{background:var(--c-graphite)}
+.s-porcelain{background:var(--c-porcelain)} .s-studio{background:var(--c-studio)}
+
+/* ---------- Ảnh ---------- */
+.ph{position:relative;overflow:hidden;min-height:0;background:#1d1d1f}
+.on-light .ph,.ph.light{background:#d9d5ce}
+.ph > img,.media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.zoomed::before{content:"";position:absolute;inset:0;background:var(--zbg) center/cover no-repeat;z-index:0}
+.zoomed > img{z-index:1}
+.swap > img{opacity:0;transition:opacity var(--t-slow) var(--ease-inout)}
+.swap > img.on{opacity:1}
+.fastswap > img{transition:opacity 800ms var(--ease-inout),transform var(--t-cinema) var(--ease-glide)}
+.media{position:absolute;inset:0;overflow:hidden}
+.cap{position:absolute;left:var(--g2);bottom:var(--g2);z-index:3;color:var(--c-porcelain);font-size:var(--fs-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.cap::before{content:"";display:inline-block;width:18px;height:1px;background:currentColor;vertical-align:middle;margin-right:10px;opacity:.8}
+
+/* Mask */
+.m1l::after,.m2::after,.m3::after,.m4::before,.m5::after,.mb::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1}
+.m1l::after{background:linear-gradient(90deg,rgba(14,14,15,.7) 0%,rgba(14,14,15,.28) 30%,rgba(14,14,15,0) 48%)}
+.m2::after{background:linear-gradient(0deg,rgba(14,14,15,.78) 0%,rgba(14,14,15,.3) 30%,rgba(14,14,15,0) 52%)}
+.m3::after{background:radial-gradient(110% 90% at 100% 100%,rgba(14,14,15,.78) 0%,rgba(14,14,15,.35) 38%,rgba(14,14,15,0) 64%)}
+.m4::before{background:linear-gradient(180deg,rgba(14,14,15,.45) 0%,rgba(14,14,15,0) 18%);z-index:2}
+.m5::after{background:linear-gradient(180deg,rgba(14,14,15,.5) 0%,rgba(14,14,15,0) 46%)}
+.mwell::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(14,14,15,.62) 0%,rgba(14,14,15,0) 30%),linear-gradient(0deg,rgba(14,14,15,.86) 0%,rgba(14,14,15,.4) 32%,rgba(14,14,15,0) 55%),linear-gradient(90deg,rgba(14,14,15,.45) 0%,rgba(14,14,15,0) 45%)}
+
+/* Motif kim cương */
+.motif{position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cg fill='none' stroke='%23F4F2EE' stroke-width='.8'%3E%3Cpath d='M0 14 L14 7 L28 14 L14 21 Z'/%3E%3Cpath d='M28 14 L42 7 L56 14 L42 21 Z'/%3E%3Cpath d='M14 0 L28 -7 L42 0 L28 7 Z'/%3E%3Cpath d='M14 28 L28 21 L42 28 L28 35 Z'/%3E%3Cpath d='M-14 0 L0 -7 L14 0 L0 7 Z'/%3E%3Cpath d='M-14 28 L0 21 L14 28 L0 35 Z'/%3E%3Cpath d='M42 0 L56 -7 L70 0 L56 7 Z'/%3E%3Cpath d='M42 28 L56 21 L70 28 L56 35 Z'/%3E%3C/g%3E%3C/svg%3E");background-size:56px 28px}
+.motif.ink{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cg fill='none' stroke='%230E0E0F' stroke-width='.8'%3E%3Cpath d='M0 14 L14 7 L28 14 L14 21 Z'/%3E%3Cpath d='M28 14 L42 7 L56 14 L42 21 Z'/%3E%3Cpath d='M14 0 L28 -7 L42 0 L28 7 Z'/%3E%3Cpath d='M14 28 L28 21 L42 28 L28 35 Z'/%3E%3Cpath d='M-14 0 L0 -7 L14 0 L0 7 Z'/%3E%3Cpath d='M-14 28 L0 21 L14 28 L0 35 Z'/%3E%3Cpath d='M42 0 L56 -7 L70 0 L56 7 Z'/%3E%3Cpath d='M42 28 L56 21 L70 28 L56 35 Z'/%3E%3C/g%3E%3C/svg%3E")}
+.motif.full{opacity:.055} .motif.ink.full{opacity:.05}
+.motif.sides{opacity:.1;-webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 30%,transparent 70%,#000 100%);mask-image:linear-gradient(90deg,#000 0%,transparent 30%,transparent 70%,#000 100%)}
+.motif.ink.sides{opacity:.075}
+.motif.tb{opacity:.1;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 32%,transparent 68%,#000 100%);mask-image:linear-gradient(180deg,#000 0%,transparent 32%,transparent 68%,#000 100%)}
+.motif.ink.tb{opacity:.075}
+.motif.left{opacity:.12;-webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.5) 34%,transparent 56%);mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.5) 34%,transparent 56%)}
+
+/* Motion */
+[data-r]{opacity:0;transform:translateY(16px);transition:opacity var(--t-slow) var(--ease-glide),transform var(--t-slow) var(--ease-glide);transition-delay:calc(var(--d,0) * var(--stagger))}
+.in [data-r]{opacity:1;transform:none}
+.settle > img{transform:scale(1.05);transition:transform var(--t-cinema) var(--ease-glide),opacity var(--t-slow) var(--ease-inout)}
+.in .settle > img{transform:none}
+.wipe{clip-path:inset(0 100% 0 0);transition:clip-path var(--t-cinema) var(--ease-inout)}
+.in .wipe{clip-path:inset(0)}
+@media (prefers-reduced-motion:reduce){[data-r],.settle > img,.wipe{transition:opacity 200ms linear!important;transform:none!important;clip-path:none!important}}
+
+
+
+/* =========================================================
+   HEADER · MENU · RAIL · DOCK
+   ========================================================= */
+.hdr{position:fixed;inset:0 0 auto;height:var(--hh);z-index:70;transition:background var(--t-base),color var(--t-base),border-color var(--t-base);border-bottom:1px solid transparent}
+.hdr .wrap{height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.hdr .left{display:flex;align-items:center;gap:22px}
+.burger{display:inline-flex;align-items:center;gap:14px;min-height:44px}
+.burger i{position:relative;display:block;width:26px;height:10px}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;right:0;height:1px;background:currentColor;transition:transform var(--t-base) var(--ease-glide),top var(--t-base) var(--ease-glide)}
+.burger i::before{top:0}.burger i::after{top:9px}
+html.menu-open .burger i::before{top:4.5px;transform:rotate(45deg)}
+html.menu-open .burger i::after{top:4.5px;transform:rotate(-45deg)}
+.brand{display:block;height:46px;justify-self:center}
+.brand img{height:100%;width:auto}
+.brand .lg-d{display:none}
+.hdr .right{display:flex;align-items:center;justify-content:flex-end;gap:18px}
+.lang{display:flex;gap:4px}
+.lang button{padding:6px;opacity:.55;border-bottom:1px solid transparent;min-height:32px}
+.lang button[aria-pressed="true"]{opacity:1;border-color:currentColor}
+.hdr .btn{min-height:40px;padding:0 1.2em}
+.hdr[data-on="dark"]{color:var(--c-porcelain)}
+.hdr[data-on="dark"].scrolled{background:rgba(14,14,15,.6);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-color:var(--line-d)}
+.hdr[data-on="dark"] .btn--primary{border-color:rgba(127,168,151,.55)}
+.hdr[data-on="light"]{background:rgba(244,242,238,.86);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--c-onyx);border-color:var(--line-l)}
+.hdr[data-on="light"] .brand .lg-l{display:none}
+.hdr[data-on="light"] .brand .lg-d{display:block}
+html.menu-open .hdr{background:transparent!important;border-color:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;color:var(--c-porcelain)!important}
+html.menu-open .hdr .brand .lg-l{display:block!important} html.menu-open .hdr .brand .lg-d{display:none!important}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.hdr .hdr-cta{display:none}.brand{height:36px}.burger .label{display:none}}
+
+.menu{position:fixed;inset:0;z-index:65;background:var(--c-onyx);color:var(--c-porcelain);visibility:hidden;opacity:0;transition:opacity var(--t-base) var(--ease-glide),visibility 0s linear var(--t-base);overflow-y:auto;overscroll-behavior:contain}
+html.menu-open .menu{visibility:visible;opacity:1;transition:opacity var(--t-base) var(--ease-glide)}
+.menu .wrap{position:relative;z-index:3;min-height:100%;padding:calc(var(--hh) + var(--g4)) 0 var(--g4);display:grid;grid-template-columns:minmax(0,2.2fr) minmax(260px,1fr);gap:var(--g4)}
+.menu .acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g3) var(--g4);align-content:start}
+.menu .act p{margin-bottom:8px}
+.menu .act a{display:flex;gap:14px;align-items:baseline;padding:6px 0;text-decoration:none;font-family:var(--f-d);font-weight:300;font-size:clamp(1.1rem,calc(.8rem + .85*var(--u)),1.55rem);line-height:1.25;transition:color var(--t-fast)}
+.menu .act a span{font-family:var(--f-b);font-size:11px;letter-spacing:.14em;color:var(--c-ash);min-width:1.6em}
+.menu .act a:hover{color:var(--c-slate-mist)}
+.menu .side{border-left:1px solid var(--line-d);padding-left:var(--g4);display:flex;flex-direction:column;gap:var(--g2)}
+.menu .side .btn{width:100%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.menu .wrap{grid-template-columns:1fr}.menu .acts{grid-template-columns:1fr 1fr}.menu .side{border-left:0;padding-left:0;border-top:1px solid var(--line-d);padding-top:var(--g3)}}
+@media (max-width:560px){.menu .acts{grid-template-columns:1fr}}
+
+.rail{position:fixed;right:calc(var(--gx)/2 - 6px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:10px}
+.rail a{display:block;width:12px;height:12px;position:relative}
+.rail a::before{content:"";position:absolute;left:5px;top:0;width:1px;height:12px;background:currentColor;opacity:.35;transition:all var(--t-base) var(--ease-glide)}
+.rail a[aria-current="true"]::before{opacity:1;left:3px;width:5px;background:var(--rail-acc)}
+.rail[data-on="light"]{color:var(--c-onyx);--rail-acc:var(--c-slate)}
+.rail[data-on="dark"]{color:var(--c-porcelain);--rail-acc:var(--c-slate-mist)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.rail{display:none}}
+
+.dock{display:none}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1fr;background:var(--c-onyx);border-top:1px solid var(--line-d);padding-bottom:env(safe-area-inset-bottom);transition:transform var(--t-base) var(--ease-glide)}
+  .dock a{min-height:52px;display:grid;place-items:center;color:var(--c-porcelain);text-decoration:none}
+  .dock a:first-child{background:var(--c-slate);color:var(--c-white)}
+  .dock.hide{transform:translateY(110%)}
+}
+
+/* Tabs */
+.tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);border:1px solid var(--line-l)}
+.on-dark .tabs{border-color:var(--line-d)}
+.tabs button{padding:0 14px;min-height:44px;border-left:1px solid var(--line-l);text-align:center;white-space:nowrap;position:relative;transition:color var(--t-fast)}
+.on-dark .tabs button{border-left-color:var(--line-d)}
+.tabs button:first-child{border-left:0}
+.tabs button::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:2px;background:var(--c-slate);transform:scaleX(0);transition:transform var(--t-base) var(--ease-glide)}
+.on-dark .tabs button::after{background:var(--c-slate-mist)}
+.tabs button[aria-selected="true"]{color:var(--c-slate)}
+.on-dark .tabs button[aria-selected="true"]{color:var(--c-slate-mist)}
+.tabs button[aria-selected="true"]::after{transform:none}
+
+/* =========================================================
+   01 HERO
+   ========================================================= */
+.hero .wrap{justify-content:flex-end}
+.hero .copy{max-width:min(31rem,30vw);display:grid;gap:var(--g2)}
+.hero .cue{position:absolute;left:50%;bottom:calc(var(--sy)*.45);transform:translateX(-50%);z-index:3;opacity:.75;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--c-porcelain)}
+.hero .cue i{display:block;width:1px;height:34px;background:currentColor;animation:cue 2.4s var(--ease-inout) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:1023.98px), (max-aspect-ratio:3/2){
+  .hero .media{bottom:auto;height:min(56svh,64vw);-webkit-mask-image:linear-gradient(180deg,#000 74%,transparent 100%);mask-image:linear-gradient(180deg,#000 74%,transparent 100%)}
+  .hero .media.m1l::after{background:linear-gradient(180deg,rgba(14,14,15,.4) 0%,rgba(14,14,15,0) 26%)}
+  .hero .wrap{justify-content:center;padding-top:calc(min(56svh,64vw) * .72 - var(--hh) - var(--sy))}
+  .hero .copy{max-width:min(40rem,100%)}
+  .hero .cue{display:none}
+}
+
+/* 02 GLANCE */
+.glance .wrap{justify-content:center;gap:var(--g3)}
+.glance .intro{display:grid;grid-template-columns:1fr minmax(0,26em);align-items:end;gap:var(--g3)}
+.glance .car{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center}
+.glance .car img{max-height:100%;width:auto;max-width:min(100%,1180px);object-fit:contain}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-d)}
+.on-light .stats{border-color:var(--line-l)}
+.stats > div{padding:var(--g2) var(--g2) 0 0;display:grid;gap:6px;align-content:start}
+.stats > div + div{padding-left:var(--g2);border-left:1px solid var(--line-d)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.glance .intro{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats > div:nth-child(3){padding-left:0;border-left:0}.stats > div:nth-child(n+3){border-top:1px solid var(--line-d);margin-top:var(--g2)}}
+
+/* 03 MODELS */
+.models .wrap{gap:var(--g2)}
+.vtop{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.vtop .tabs{min-width:min(420px,100%)}
+.vgrid{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:var(--g3)}
+@media (min-width:1024px) and (max-width:1279.98px){.vgrid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
+.vside{min-height:0;display:grid;grid-template-rows:auto auto 1fr auto;gap:var(--g2)}
+.vside .pair{display:grid;grid-template-columns:2fr 1fr;gap:12px;height:clamp(76px,15vh,170px)}
+.models .vwheel{background:#000}
+.vwheel > img{inset:4%;width:92%;height:92%;object-fit:contain;transform:rotate(-24deg);transition:opacity 1000ms var(--ease-glide) 200ms,transform 1600ms var(--ease-glide) 200ms}
+.vwheel > img.on{transform:none}
+.vline{min-height:calc(2*1.55em)}
+.vcopy{transition:opacity 500ms var(--ease-glide)} .vcopy.fade{opacity:0}
+.vlist{list-style:none;border-top:1px solid var(--line-l);align-self:start}
+.vlist li{min-height:calc(2*1.45em + 2*clamp(4px,.8vh,9px));padding:clamp(4px,.8vh,9px) 0;border-bottom:1px solid var(--line-l);font-size:var(--fs-small);line-height:1.45;display:grid;grid-template-columns:7.2em 1fr;gap:10px}
+.vlist li b{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:var(--fs-label);padding-top:2px}
+.vside .actions{display:grid;gap:10px;justify-items:start}
+.vside .actions .btn{width:100%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.vgrid{grid-template-columns:1fr;gap:var(--g1)}.vmain{height:min(58vw,34svh)}.vside .pair{height:22vw}.vline{display:none}.vside{gap:var(--g1)}.vtop .tabs{width:100%}}
+@media (min-width:700px) and (max-width:1023.98px){.vgrid{grid-template-columns:1.2fr 1fr}.vmain{height:auto}.vside .pair{height:16vw}.vside .actions .btn{white-space:normal}}
+@media (min-width:1024px) and (max-height:820px){.vline{display:none}}
+@media (min-width:1024px) and (max-height:780px){.vside .pair{height:12vh}.vside{gap:var(--g1)}}
+
+/* 04 PERFORMANCE */
+.perf{display:grid!important;grid-template-columns:minmax(0,44fr) minmax(0,56fr)}
+.perf .panel{position:relative;padding:calc(var(--hh) + var(--sy)) var(--g4) var(--sy) var(--gx);display:flex;flex-direction:column;justify-content:center;gap:var(--g3);min-height:0}
+.perf .panel > *{position:relative;z-index:3}
+.perf .h2{font-size:clamp(1.5rem,calc(.6rem + 2.1*var(--u)),2.75rem)}
+.perf .row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.perf .tabs{width:min(320px,100%)}
+.perf .note{flex:1 1 auto;min-height:1.5em}
+.pstats{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3) var(--g3);border-top:1px solid var(--line-d);padding-top:var(--g3)}
+.pstats > div{display:grid;gap:6px}
+.perf .ph{height:100%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.perf{grid-template-columns:1fr}.perf .ph{order:-1;height:26svh;margin-top:var(--hh)}.perf .panel{padding:var(--g3) var(--gx) var(--g4);gap:var(--g2)}}
+
+/* 05 DYNAMICS */
+.dyn{display:grid!important;grid-template-columns:1fr 1fr}
+.dyn .ph{height:100%}
+.dyn .copy{position:relative;padding:calc(var(--hh) + var(--sy)) var(--gx) var(--sy) var(--g4);display:flex;flex-direction:column;justify-content:center;gap:var(--g3);min-height:0}
+.items{border-top:1px solid var(--line-l);display:grid}
+.items .it{border-bottom:1px solid var(--line-l)}
+.items .it > button{display:flex;justify-content:space-between;width:100%;align-items:center;gap:12px;min-height:52px;transition:color var(--t-fast)}
+.items .it > button span{font-family:var(--f-b);font-size:11px;letter-spacing:.14em;color:var(--c-stone);margin-right:14px}
+.items .it > button::after{content:"+";font-size:18px;font-weight:300}
+.items .it.on > button{color:var(--c-slate)}
+.items .it.on > button::after{content:"\2212"}
+.items .it .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--t-base) var(--ease-glide)}
+.items .it.on .body{grid-template-rows:1fr}
+.items .it .body > p{overflow:hidden}
+.items .it.on .body > p{padding-bottom:var(--g2)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.dyn{grid-template-columns:1fr}.dyn .ph{height:32svh;margin-top:var(--hh)}.dyn .copy{padding:var(--g3) var(--gx) var(--g4);gap:var(--g2)}}
+
+/* 06 CHARGING */
+.charge .media.mask-l::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,14,15,.94) 0%,rgba(14,14,15,.86) 30%,rgba(14,14,15,.45) 50%,rgba(14,14,15,0) 66%)}
+.charge .wrap{justify-content:center}
+.charge .col{width:min(53vw,960px);display:grid;gap:var(--g3)}
+.cpanel{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--g4);align-items:center}
+.screen{position:relative;width:100%;max-height:44vh;aspect-ratio:1420/1000;border:1px solid var(--line-d);background:#000;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 6px rgba(255,255,255,.03)}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 60%);background-size:250% 100%;background-position:120% 0;transition:background-position 2.2s var(--ease-inout) .4s}
+.in .screen::after{background-position:-60% 0}
+.cstats{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3) var(--g3);align-content:center}
+.cstats > div{display:grid;gap:4px}
+.cstats .stat .n{font-size:clamp(1.7rem,calc(.6rem + 2.7*var(--u)),3.4rem)}
+.cbar{display:grid;gap:8px}
+.cbar .track{position:relative;height:2px;background:rgba(244,242,238,.16)}
+.cbar .fill{position:absolute;left:0;top:0;bottom:0;width:10%;background:var(--c-slate-mist);transition:width 2.2s var(--ease-inout) .6s}
+.in .cbar .fill{width:80%}
+.cbar .ticks{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;color:var(--c-ash)}
+.cbar .ticks span:nth-child(2){margin-left:auto;margin-right:20%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .charge{padding-top:var(--hh)!important}
+  .charge .media{position:relative;inset:auto;flex:none;height:min(50vw,32svh)}
+  .charge .media.mask-l::after{background:linear-gradient(180deg,rgba(14,14,15,.35) 0%,rgba(14,14,15,0) 30%,rgba(14,14,15,0) 70%,var(--c-onyx) 100%)}
+  .charge .motif.left{display:none}
+  .charge .wrap{padding-top:var(--g3)}
+  .charge .col{width:100%}
+  .charge .wrap{justify-content:flex-start}
+  .cpanel{grid-template-columns:1fr}
+  .screen{width:min(58vw,360px);max-height:none}
+  .charge .cpanel{gap:var(--g2)}
+}
+
+/* 07 DESIGN · 2 nhịp cuộn */
+.design{position:relative;height:200vh;background:var(--c-onyx)}
+@supports (height:100dvh){.design{height:200dvh}}
+.design .snap{position:absolute;left:0;right:0;height:100dvh;pointer-events:none}
+.design .snap.a{top:0}.design .snap.b{top:100dvh}
+@media (min-width:1024px) and (min-height:600px) and (min-aspect-ratio:1/1){.design .snap{scroll-snap-align:start}}
+@media (max-width:1023.98px), (max-height:599.98px), (max-aspect-ratio:1/1){.design .snap{scroll-snap-align:start}}
+.design .pin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+.design .layer{position:absolute;inset:0;z-index:1;isolation:isolate}
+.design .layer.car{z-index:2}
+.design .edge{position:absolute;top:0;bottom:0;z-index:3;width:1px;left:calc(var(--wp,100) * 1%);background:linear-gradient(180deg,transparent,rgba(127,168,151,.9) 30%,rgba(244,242,238,.9) 50%,rgba(127,168,151,.9) 70%,transparent);box-shadow:0 0 24px 4px rgba(127,168,151,.35);opacity:calc(min(var(--p,0),1 - var(--p,0)) * 6);pointer-events:none}
+.design .layer.sketch img{opacity:0;transform:scale(1.08) translateX(3%);transition:opacity 1800ms var(--ease-glide),transform 2600ms var(--ease-glide)}
+.design.in .layer.sketch img{opacity:1;transform:scale(calc(1 + var(--p,0) * .04))}
+.design .c1 > *{opacity:0;transform:translateY(18px);transition:opacity var(--t-slow) var(--ease-glide),transform var(--t-slow) var(--ease-glide)}
+.design .c1 > *:nth-child(2){transition-delay:.35s}
+.design.in .c1 > *{opacity:1;transform:none}
+.design .layer.sketch{background:radial-gradient(80% 90% at 70% 40%,#1b1c1d 0%,var(--c-onyx) 70%)}
+.design .layer.car{clip-path:inset(0 0 0 calc(var(--wp,100) * 1%))}
+.design .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.design .c1,.design .c2{position:absolute;z-index:4;left:var(--gx);bottom:calc(var(--sy) + 8px);max-width:min(40rem,calc(100% - 2*var(--gx)));display:grid;gap:var(--g2);color:var(--c-porcelain)}
+.design .c1{opacity:calc(1 - var(--p,0) * 2.2);transform:translateY(calc(var(--p,0) * -30px))}
+.design .c2{opacity:calc((var(--p,0) - .55) * 2.4);transform:translateY(calc((1 - var(--p,0)) * 30px));max-width:min(46rem,calc(100% - 2*var(--gx)))}
+.design .pts{list-style:none;display:flex;flex-wrap:wrap;gap:6px 26px}
+.design .pts li::before{content:"\25C6";font-size:.6em;margin-right:10px;color:var(--c-slate-mist);vertical-align:2px}
+.design .step{position:absolute;right:var(--gx);bottom:calc(var(--sy) + 8px);z-index:4;color:var(--c-porcelain);display:flex;gap:10px;align-items:center}
+.design .step i{display:block;width:40px;height:1px;background:rgba(244,242,238,.35);position:relative}
+.design .step i::after{content:"";position:absolute;inset:0;background:var(--c-slate-mist);transform-origin:left;transform:scaleX(var(--p,0))}
+@media (max-width:767.98px){.design .step{display:none}}
+
+/* 08 GRILLE */
+.grille .wrap{justify-content:flex-end;align-items:flex-end}
+.grille .copy{max-width:min(36rem,44vw);display:grid;gap:var(--g2)}
+.grille .det{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3);border-top:1px solid var(--line-d);padding-top:var(--g2)}
+.grille .view{position:absolute;z-index:4;top:calc(var(--hh) + var(--sy));right:var(--gx)}
+.grille .view .tabs{width:240px}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.grille .copy{max-width:100%}.grille .det{grid-template-columns:1fr;gap:var(--g1)}.grille .view{left:var(--gx);right:auto}}
+
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .grille .media::after,.well .media::after{background:linear-gradient(0deg,rgba(14,14,15,.94) 0%,rgba(14,14,15,.8) 46%,rgba(14,14,15,.15) 78%,rgba(14,14,15,0) 100%)!important}
+  .well .media::before{background:linear-gradient(180deg,rgba(14,14,15,.75) 0%,rgba(14,14,15,0) 34%)!important}
+}
+/* 09 HERITAGE */
+.herit{display:grid!important;grid-template-columns:minmax(0,38fr) minmax(0,62fr)}
+.herit .copy{position:relative;padding:calc(var(--hh) + var(--sy)) var(--g4) var(--sy) var(--gx);display:flex;flex-direction:column;gap:var(--g2);min-height:0}
+.herit .thumbs{flex:1 1 auto;min-height:90px;display:grid;grid-template-columns:1fr 1fr;gap:var(--g2)}
+.herit .big{height:100%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.herit{grid-template-columns:1fr}.herit .big{order:-1;height:34svh;margin-top:var(--hh)}.herit .copy{padding:var(--g3) var(--gx) var(--g4)}.herit .thumbs{height:34vw;flex:none}}
+
+/* 10 CRAFT */
+.craft .wrap{flex-direction:row!important;gap:var(--g4);align-items:stretch}
+.craft .copy{flex:0 0 min(34%,30rem);display:flex;flex-direction:column;justify-content:center;gap:var(--g2);min-height:0}
+.craft .vis{flex:1 1 auto;min-width:0;display:grid;grid-template-rows:1fr auto;gap:var(--g2)}
+.craft .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--g2);height:clamp(64px,13vh,150px)}
+.craft .strip button{position:relative;overflow:hidden;background:#d9d5ce}
+.craft .strip button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform var(--t-slow) var(--ease-glide)}
+.craft .strip button:hover img{transform:scale(1.04)}
+.craft .strip button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--c-slate);transform:scaleX(0);transform-origin:left;transition:transform var(--t-base) var(--ease-glide)}
+.craft .strip button[aria-pressed="true"]::after{transform:none}
+.craft .strip span{position:absolute;left:8px;bottom:8px;color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.craft .wrap{flex-direction:column!important}.craft .copy{flex:none}.craft .vis{grid-template-rows:52vw auto}.craft .strip{height:18vw;gap:6px}.craft .strip span{display:none}}
+
+/* 11 WELLBEING */
+.well .wrap{justify-content:space-between;gap:var(--g3)}
+.well .list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-d)}
+.well .list button{padding:var(--g2) var(--g2) 0 0;display:grid;gap:8px;align-content:start;text-align:left;opacity:.62;transition:opacity var(--t-base);position:relative}
+.well .list button + button{padding-left:var(--g2);border-left:1px solid var(--line-d)}
+.well .list button::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--c-slate-mist);transform:scaleX(0);transform-origin:left;transition:transform var(--t-slow) var(--ease-glide)}
+.well .list button[aria-selected="true"]{opacity:1}
+.well .list button[aria-selected="true"]::before{transform:none}
+.well .list span.n{font-size:11px;letter-spacing:.14em;color:var(--c-ash)}
+.well .desc{max-width:40em;min-height:calc(3*1.55em)}
+.well .list .d{display:none}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .well{padding-top:var(--hh)!important}
+  .well .media{position:relative;inset:auto;flex:none;height:min(52vw,34svh)}
+  .well .media::before,.well .media::after{background:linear-gradient(180deg,rgba(14,14,15,0) 70%,var(--c-onyx) 100%)!important}
+  .well .wrap{padding-top:var(--g3);justify-content:flex-start}
+  .well .desc{display:none}
+  .well .list{grid-template-columns:1fr;border-top:1px solid var(--line-d)}
+  .well .list button,.well .list button + button{padding:var(--g2) 0;border-left:0;border-top:0;margin:0;border-bottom:1px solid var(--line-d);grid-template-columns:2.2em 1fr;column-gap:8px;align-items:baseline;opacity:.7}
+  .well .list button::before{top:auto;bottom:-1px;height:1px}
+  .well .list button .d{grid-column:2;max-height:0;overflow:hidden;opacity:0;transition:max-height var(--t-base) var(--ease-glide),opacity var(--t-base)}
+  .well .list button[aria-selected="true"] .d{display:block;max-height:14em;opacity:1;margin-top:6px}
+}
+
+/* 12 TECH */
+.tech .wrap{flex-direction:row!important;gap:var(--g4);align-items:center}
+.tech .copy{flex:0 0 min(30%,28rem);display:flex;flex-direction:column;gap:var(--g2);min-height:0}
+.vtabs{display:grid;border-top:1px solid var(--line-l)}
+.vtabs button{min-height:46px;border-bottom:1px solid var(--line-l);display:flex;gap:14px;align-items:center;transition:color var(--t-fast)}
+.vtabs button span{font-size:11px;letter-spacing:.14em;color:var(--c-stone)}
+.vtabs button[aria-selected="true"]{color:var(--c-slate)}
+.vtabs button[aria-selected="true"]::after{content:"\2192";margin-left:auto}
+.tech .desc{min-height:calc(4*1.55em)}
+.tech .frame{flex:1 1 auto;min-width:0;align-self:stretch;display:flex;align-items:center}
+.tech .ph{width:100%;aspect-ratio:3/2;max-height:100%}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.tech .wrap{flex-direction:column!important;align-items:stretch}.tech .copy{flex:none}.tech .frame{order:-1;flex:none}.tech .ph{aspect-ratio:16/10}}
+
+/* 13 SOUND */
+.sound{display:grid!important;grid-template-columns:minmax(0,45fr) minmax(0,55fr)}
+.sound .ph{height:100%;background:#000}
+.sound .copy{position:relative;padding:calc(var(--hh) + var(--sy)) var(--gx) var(--sy) var(--g4);display:flex;flex-direction:column;justify-content:center;gap:var(--g3);min-height:0}
+.sound .copy > *{position:relative;z-index:3}
+.sound .sys{display:grid;grid-template-columns:1fr 1fr;gap:var(--g3);border-top:1px solid var(--line-d);padding-top:var(--g3)}
+.sound .sys > div{display:grid;gap:8px;align-content:start}
+.sound .stat .n{font-size:clamp(1.6rem,calc(.6rem + 2.6*var(--u)),3.4rem)}
+.sound .tagline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-slate-mist)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.sound{grid-template-columns:1fr}.sound .ph{height:20svh;margin-top:var(--hh)}.sound .copy{padding:var(--g3) var(--gx) var(--g4);gap:var(--g2)}}
+@media (max-width:560px){.sound .sys{grid-template-columns:1fr}}
+
+/* 14 ATELIER */
+.atel .wrap{gap:var(--g2)}
+.atel .top{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--g3);flex-wrap:wrap}
+.atel .hint{display:flex;align-items:center;gap:12px}
+.atel .hint i{width:9px;height:9px;border-radius:50%;background:var(--c-slate-mist);box-shadow:0 0 0 4px rgba(127,168,151,.18)}
+.stage{position:relative;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center}
+.carbox{position:relative;width:min(64%,calc((100dvh - 330px) * 2.6),1220px);min-width:280px;transform-origin:50% 50%;transition:transform 900ms var(--ease-glide)}
+.atel.pop-open .carbox{transform:translateX(var(--tx,0)) scale(var(--sc,1))}
+.carbox img{width:100%;height:auto;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));transition:opacity var(--t-base) var(--ease-glide),filter var(--t-base)}
+.carbox::after{content:"";position:absolute;left:6%;right:6%;bottom:-2%;height:10%;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.6),rgba(0,0,0,0));z-index:-1}
+.hot{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;border:1px solid var(--c-porcelain);background:rgba(14,14,15,.45);z-index:3;transition:transform var(--t-base) var(--ease-glide),border-color var(--t-fast),opacity var(--t-base)}
+.hot::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--c-porcelain)}
+.hot::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(244,242,238,.35);animation:pulse 2.8s var(--ease-glide) infinite}
+.hot.on{border-color:var(--c-slate-mist);transform:scale(1.25)}
+.hot.on::after{background:var(--c-slate-mist)}
+.atel.pop-open .hot:not(.on){opacity:.55}
+.hot .mini{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;overflow:hidden;border:1.5px solid var(--c-slate-mist);background:#000;opacity:0;transform:scale(.4);transition:opacity var(--t-base),transform var(--t-base) var(--ease-glide);box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.hot.has .mini{opacity:1;transform:scale(1)}
+.hot.has::after,.hot.has::before{opacity:0}
+.hot .mini img{width:100%;height:100%;object-fit:cover}
+.hot .mini.contain img{object-fit:contain;transform:scale(1.15)}
+.atel.pop-open .zl,.atel.pop-open svg.lines{opacity:0;pointer-events:none}
+.zl,svg.lines{transition:opacity var(--t-base) var(--ease-glide)}
+@keyframes pulse{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.6);opacity:0}}
+.zl{position:absolute;z-index:4;display:grid;gap:2px;text-align:left;max-width:15rem;transition:color var(--t-fast),opacity var(--t-base);opacity:.82}
+.zl.r{text-align:right}
+.zl b{font-family:var(--f-d);font-weight:300;font-size:var(--fs-h4);letter-spacing:.01em}
+.zl small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-ash)}
+.zl:hover{opacity:1}
+.zl.on{opacity:1;color:var(--c-slate-mist)}
+.atel.pop-open .zl:not(.on){opacity:.3}
+svg.lines{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+svg.lines path{fill:none;stroke:rgba(244,242,238,.4);stroke-width:1;stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 1600ms var(--ease-inout),stroke var(--t-fast),opacity var(--t-base)}
+.atel.in svg.lines path{stroke-dashoffset:0}
+svg.lines path.on{stroke:var(--c-slate-mist)}
+.atel.pop-open svg.lines path:not(.on){opacity:.2}
+.pop{position:absolute;z-index:6;width:min(470px,38vw);max-height:100%;overflow:hidden;background:rgba(18,18,20,.84);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid var(--line-d);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);padding:var(--g3);display:grid;gap:var(--g2);opacity:0;visibility:hidden;transform:translateY(10px) scale(.98);transition:opacity var(--t-base) var(--ease-glide),transform var(--t-base) var(--ease-glide),visibility 0s linear var(--t-base)}
+.pop.open{opacity:1;visibility:visible;transform:none;transition:opacity var(--t-base) var(--ease-glide),transform var(--t-base) var(--ease-glide)}
+.pop .ph-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pop .x,.ovl .x{display:grid;place-items:center;padding:0;line-height:0;text-align:center}
+.pop .x{width:36px;height:36px;border:1px solid var(--line-d);border-radius:50%;flex:none;transition:border-color var(--t-fast),transform var(--t-base) var(--ease-glide)}
+.pop .x:hover,.ovl .x:hover{transform:rotate(90deg)}
+.pop .x:hover{border-color:var(--c-porcelain)}
+.pv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--g2);align-items:center}
+.pv .ph{width:clamp(64px,10vh,104px);aspect-ratio:1;background:#000}
+.pv .ph.contain > img{object-fit:contain;inset:5%;width:90%;height:90%}
+.pv .nm{display:grid;gap:4px}
+.pv .nm b{font-weight:500;line-height:1.3}
+.pv .nm span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-slate-mist)}
+.fan{display:grid;grid-template-columns:repeat(auto-fill,var(--sw,48px));gap:8px;justify-content:start}
+.fan button{position:relative;width:var(--sw,48px);aspect-ratio:1;background:#000;overflow:hidden;outline:1px solid var(--line-d);opacity:0;transform:translate(var(--fx,0),var(--fy,0)) scale(.25) rotate(-14deg);transition:transform 800ms var(--ease-glide) calc(var(--i,0)*22ms),opacity 500ms var(--ease-glide) calc(var(--i,0)*22ms),outline-color var(--t-fast)}
+.pop.open .fan button{opacity:1;transform:none}
+.fan button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fan.contain button img{object-fit:contain;inset:6%;width:88%;height:88%}
+.fan button:hover{outline-color:rgba(244,242,238,.6)}
+.fan button[aria-pressed="true"]{outline:1.5px solid var(--c-slate-mist);outline-offset:3px}
+@media (min-width:1024px){.pop.paint{width:min(760px,58vw)}}
+.pimg{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100dvh - 400px);overflow:hidden;background:#111}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1600ms var(--ease-glide)}
+.pop.open .pimg img{transform:none}
+.names{display:flex;flex-wrap:wrap;gap:6px}
+.names button{padding:6px 10px;border:1px solid var(--line-d);font-size:var(--fs-small);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-glide) calc(var(--i,0)*40ms + 200ms),transform .6s var(--ease-glide) calc(var(--i,0)*40ms + 200ms),border-color var(--t-fast),color var(--t-fast)}
+.pop.open .names button{opacity:1;transform:none}
+.names button small{color:var(--c-ash);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
+.names button[aria-pressed="true"]{border-color:var(--c-slate-mist);color:var(--c-slate-mist)}
+.zchips{display:none}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .stage{flex:none;flex-direction:column;min-height:0}
+  .carbox{width:100%;min-width:0}
+  .zl,svg.lines{display:none}
+  .atel.pop-open .carbox{transform:none}
+  .zchips{display:grid;width:100%;margin-top:var(--g2);grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-d)}
+  .zchips button{min-height:42px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:4px}
+  .zchips button[aria-selected="true"]{color:var(--c-slate-mist);background:rgba(127,168,151,.08)}
+  .pop{position:relative;width:100%;margin-top:var(--g2);left:auto!important;top:auto!important;display:none;max-height:none}
+  .pop.open{display:grid}
+  .fan{--sw:calc((100vw - 2*var(--gx) - 2*var(--g3) - 5*8px)/6)!important}
+}
+
+/* 15 ENQUIRE */
+.enq .wrap{flex-direction:row!important;justify-content:flex-end;align-items:center}
+.enq .panel{width:min(560px,46vw);background:rgba(244,242,238,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:var(--g4) var(--g4);display:grid;gap:var(--g2);box-shadow:0 30px 80px -40px rgba(0,0,0,.35)}
+form.lead{display:grid;gap:clamp(8px,1.6vh,16px)}
+.intent{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-l)}
+.intent label{position:relative}
+.intent input{position:absolute;opacity:0}
+.intent span{display:grid;place-items:center;min-height:44px;font-size:var(--fs-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background var(--t-fast),color var(--t-fast)}
+.intent label + label span{border-left:1px solid var(--line-l)}
+.intent input:checked + span{background:var(--c-onyx);color:var(--c-porcelain)}
+.intent input:focus-visible + span{outline:2px solid var(--c-slate);outline-offset:2px}
+.field{position:relative;display:grid;gap:2px}
+.field label{font-size:var(--fs-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--c-stone)}
+.field input,.field select{appearance:none;-webkit-appearance:none;width:100%;min-height:44px;padding:8px 0;background:transparent;border:0;border-bottom:1px solid rgba(14,14,15,.3);border-radius:0;font-size:16px;transition:border-color var(--t-fast)}
+.field input:focus,.field select:focus{outline:0;border-bottom-color:var(--c-slate)}
+.field select{background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 10px) 52%,calc(100% - 5px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.field .err{font-size:12px;color:#A23B2A;display:none}
+.field.bad input,.field.bad select{border-bottom-color:#A23B2A}
+.field.bad .err{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.6vh,16px) 20px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:var(--fs-small);color:var(--c-stone)}
+.consent input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;border:1px solid rgba(14,14,15,.55);margin-top:3px;display:grid;place-items:center}
+.consent input:checked{background:var(--c-slate);border-color:var(--c-slate)}
+.consent input:checked::after{content:"";width:8px;height:4px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.consent.bad{color:#A23B2A}
+.form-msg{display:none}
+form.lead.done > :not(.form-msg){display:none}
+form.lead.done .form-msg{display:grid;gap:8px}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){
+  .enq .media{bottom:auto;height:24svh}
+  .enq{padding-top:calc(24svh + var(--g2))!important}
+  .enq .wrap{flex-direction:column!important;justify-content:flex-start!important}
+  .enq .panel{width:100%;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;padding:0}
+}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+@media (min-width:1024px) and (max-height:820px){.enq .lead-p{display:none}}
+
+/* 16 FOOTER */
+.foot{background:var(--c-graphite);color:var(--c-ash);padding:var(--g4) 0 calc(var(--g3) + env(safe-area-inset-bottom));position:relative}
+.foot .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:var(--g3) var(--g4);align-items:start}
+.foot img{width:150px;height:auto}
+.foot .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--g3)}
+.foot .cols div{display:grid;gap:6px;align-content:start}
+.foot a{text-decoration:none} .foot a:hover{color:var(--c-porcelain)}
+.foot .legal{grid-column:1/-1;border-top:1px solid var(--line-d);padding-top:var(--g2);font-size:var(--fs-small)}
+@media (max-width:1023.98px), (max-aspect-ratio:1/1){.foot{padding-bottom:84px}.foot .wrap{grid-template-columns:1fr}}
+
+/* So sánh thông số */
+.ovl{position:fixed;inset:0;z-index:80;background:rgba(14,14,15,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;transition:opacity var(--t-base) var(--ease-glide),visibility 0s linear var(--t-base)}
+.ovl.open{opacity:1;visibility:visible;transition:opacity var(--t-base) var(--ease-glide)}
+.ovl .card{background:var(--c-porcelain);width:min(980px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:var(--g4);display:grid;gap:var(--g2)}
+.ovl table{width:100%;border-collapse:collapse;font-size:var(--fs-small)}
+.ovl th,.ovl td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line-l);vertical-align:top}
+.ovl thead th{font-family:var(--f-d);font-weight:300;font-size:var(--fs-h4)}
+.ovl tbody th{font-weight:500}
+.ovl .x{justify-self:end;width:44px;height:44px;border:1px solid currentColor;border-radius:50%}
+
+@media (min-width:1024px) and (max-height:820px){:root{--sy:clamp(14px,4vh,40px)}}
+@media (min-width:1024px) and (max-height:700px){.hide-short{display:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hdr" data-on="dark" id="hdr">
+  <div class="wrap">
+    <div class="left">
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span class="label">Menu</span></button>
+    </div>
+    <a class="brand" href="#hero" aria-label="Bentley">
+      <img class="lg-l" src="assets/img/logo-light.png" alt="Bentley" width="974" height="437">
+      <img class="lg-d" src="assets/img/logo-dark.png" alt="Bentley" width="974" height="437">
+    </a>
+    <div class="right">
+      <div class="lang label" role="group" aria-label="Ngôn ngữ">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--primary hdr-cta" href="#enquire" data-intent="consultation" data-vi="Đăng ký tư vấn" data-en="Request a consultation">Đăng ký tư vấn</a>
+    </div>
+  </div>
+</header>
+
+<div class="menu on-dark" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="motif full"></div>
+  <div class="wrap">
+    <nav class="acts" id="menuActs" aria-label="Các màn"></nav>
+    <div class="side">
+      <p class="label accent" data-vi="Trải nghiệm Torcal" data-en="Experience the Torcal"></p>
+      <a class="btn btn--primary" href="#enquire" data-intent="consultation" data-vi="Đăng ký tư vấn" data-en="Request a consultation"></a>
+      <a class="btn btn--secondary" href="#enquire" data-intent="brochure" data-vi="Nhận brochure" data-en="Get the brochure"></a>
+    </div>
+  </div>
+</div>
+
+<nav class="rail" id="rail" data-on="dark" aria-label="Các màn"></nav>
+
+<nav class="dock label" id="dock" aria-label="Hành động nhanh">
+  <a href="#enquire" data-intent="consultation" data-vi="Đăng ký tư vấn" data-en="Consultation">Đăng ký tư vấn</a>
+  <a href="#enquire" data-intent="brochure" data-vi="Nhận brochure" data-en="Brochure">Nhận brochure</a>
+</nav>
+
+<main>
+
+<!-- 01 HERO -->
+<section class="sec hero s-onyx" id="hero" data-surface="dark" data-name="Torcal">
+  <div class="media m1l m4 settle"><img src="assets/img/p04.webp" alt="" data-f=".37 .24 .96 .78" data-p=".68 .5" data-pm=".5 .5" data-avoid=".hero .copy" data-alt-vi="Bentley Torcal góc 3/4 mặt trước trên cung đường đèo lúc hoàng hôn" data-alt-en="Bentley Torcal, front three-quarter view, on a mountain road at dusk" fetchpriority="high"></div>
+  <div class="wrap on-dark">
+    <div class="copy">
+      <p class="label eyebrow" data-r style="--d:1">Bentley Torcal</p>
+      <h1 class="display" data-r style="--d:2" data-vi="Thế giới mới của nghệ thuật chế tác" data-en="A new world of automotive craft"></h1>
+      <p class="lead" data-r style="--d:3" data-vi="Mẫu Bentley hoàn toàn mới đầu tiên sau hơn một thập kỷ. Thuần điện, mạnh mẽ chưa từng có, và trọn vẹn tinh thần Bentley." data-en="The first all-new Bentley for more than a decade. All-electric, the most powerful production Bentley ever built, and unmistakably a Bentley."></p>
+      <div class="ctas" data-r style="--d:4">
+        <a class="btn btn--primary" href="#enquire" data-intent="consultation" data-vi="Đăng ký tư vấn" data-en="Request a consultation"></a>
+        <a class="btn btn--secondary" href="#enquire" data-intent="brochure" data-vi="Nhận brochure" data-en="Get the brochure"></a>
+      </div>
+    </div>
+  </div>
+  <div class="cue label"><span data-vi="Khám phá" data-en="Discover"></span><i></i></div>
+</section>
+
+<!-- 02 GLANCE -->
+<section class="sec glance s-onyx on-dark" id="glance" data-surface="dark" data-name="Tóm lược">
+  <div class="motif full"></div>
+  <div class="wrap">
+    <div class="intro">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r>Torcal</p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Chiếc Bentley mạnh mẽ nhất từng được sản xuất" data-en="The most powerful production Bentley ever built"></h2>
+      </div>
+      <p class="muted small" data-r style="--d:2" data-vi="Chiếc Bentley đầu tiên chạy hoàn toàn bằng pin, mở đầu một chương mới trong thiết kế của Bentley." data-en="Bentley’s first fully battery-powered vehicle, and the beginning of a new chapter in Bentley design."></p>
+    </div>
+    <div class="car"><img class="wipe" src="assets/img/torcal-side.png" alt="" width="1958" height="698"></div>
+    <div class="stats">
+      <div data-r style="--d:2"><span class="stat"><span class="n" data-count="888">888</span><span class="u">PS</span></span><span class="small muted" data-vi="Công suất tối đa, Torcal S với Launch Control" data-en="Maximum power, Torcal S with Launch Control"></span></div>
+      <div data-r style="--d:3"><span class="stat"><span class="n" data-count="2.9" data-dec="1">2,9</span><span class="u" data-vi="giây" data-en="sec"></span></span><span class="small muted" data-vi="0 đến 100 km/h, Torcal S" data-en="0 to 100 km/h, Torcal S"></span></div>
+      <div data-r style="--d:4"><span class="stat"><span class="n" data-count="600">600</span><span class="u">km</span></span><span class="small muted" data-vi="Quãng đường di chuyển" data-en="Range"></span></div>
+      <div data-r style="--d:5"><span class="stat"><span class="n" data-count="430">430</span><span class="u">kW</span></span><span class="small muted" data-vi="Công suất sạc DC tối đa" data-en="Maximum DC charging power"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MODELS -->
+<section class="sec models s-studio on-light" id="models" data-surface="light" data-name="Ba phiên bản">
+  <div class="motif ink tb"></div>
+  <div class="wrap">
+    <div class="vtop">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r data-vi="Dòng Torcal" data-en="The Torcal Range"></p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Những lựa chọn tinh tuyển" data-en="A choice of exquisite models"></h2>
+      </div>
+      <div class="tabs label" role="tablist" id="vTabs" data-r style="--d:2">
+        <button type="button" role="tab" aria-selected="true" data-v="0">Torcal</button>
+        <button type="button" role="tab" aria-selected="false" data-v="1">Torcal S</button>
+        <button type="button" role="tab" aria-selected="false" data-v="2">First Edition</button>
+      </div>
+    </div>
+    <div class="vgrid">
+      <div class="ph light swap vmain" data-r style="--d:2">
+        <img class="on" src="assets/img/v-torcal-main.webp" alt="Torcal" data-f=".13 .08 .87 .7" data-z="#7f7d81 #b7b3b2">
+        <img src="assets/img/v-s-main.webp" alt="Torcal S" data-f=".13 .08 .87 .7" data-z="#7f7d81 #b5b1b0">
+        <img src="assets/img/p01.webp" alt="Torcal First Edition" data-f=".18 .3 .82 .8">
+      </div>
+      <div class="vside">
+        <div class="pair" data-r style="--d:3">
+          <div class="ph light swap vthumb">
+            <img class="on" src="assets/img/p14.webp" alt="" data-f=".33 .3 .97 .74"><img src="assets/img/p07.webp" alt="" data-f=".34 .3 .96 .8"><img src="assets/img/p60.webp" alt="" data-f=".28 .22 .7 .95">
+          </div>
+          <div class="ph swap vwheel">
+            <img class="on" src="assets/sw/wheel_22_turbine_tungsten_bright_machined.webp" alt=""><img src="assets/sw/wheel_22_s_black_bright_machined.webp" alt=""><img src="assets/sw/wheel_22_first_edition_black_liquid_silver.webp" alt="">
+          </div>
+        </div>
+        <div class="stack vcopy" data-r style="--d:4">
+          <h3 class="h3" id="vTitle">Torcal</h3>
+          <p class="vline small muted" id="vLine"></p>
+        </div>
+        <ul class="vlist vcopy" id="vList" data-r style="--d:4"></ul>
+        <div class="actions" data-r style="--d:5">
+          <a class="btn btn--primary" href="#enquire" id="vCta" data-intent="consultation"></a>
+          <button type="button" class="link" id="cmpOpen" data-vi="So sánh thông số" data-en="Compare specifications"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PERFORMANCE -->
+<section class="sec bleed perf s-onyx" id="performance" data-surface="dark" data-name="Hiệu năng">
+  <div class="panel on-dark">
+    <div class="motif full"></div>
+    <div class="stack">
+      <p class="label eyebrow accent" data-r data-vi="Hiệu năng" data-en="Performance"></p>
+      <h2 class="h2" data-r style="--d:1" data-vi="Mọi thứ dưới nắp ca-pô đã đổi khác. Cảm giác lái vẫn vẹn nguyên." data-en="Everything under the bonnet has changed. Everything about the experience stays the same."></h2>
+    </div>
+    <p class="small muted hide-short" data-r style="--d:2" data-vi="Từ năm 1919, Bentley được biết đến bởi sức mạnh phi thường đi cùng sự nhẹ nhàng. Nay, hệ truyền động điện 800V hoàn toàn mới kết hợp những đổi mới chưa từng có về khung gầm, tạo nên chiếc Bentley năng động nhất từ trước đến nay." data-en="Since 1919, Bentley has married extreme power with an effortless quality. Now an all-new 800V electric powertrain, paired with unprecedented chassis innovation, creates the most dynamic Bentley ever."></p>
+    <div class="row" data-r style="--d:3">
+      <div class="tabs label" role="tablist" id="pTabs">
+        <button type="button" role="tab" aria-selected="true" data-p="0">Torcal</button>
+        <button type="button" role="tab" aria-selected="false" data-p="1">Torcal S</button>
+      </div>
+      <p class="small muted note" id="pNote"></p>
+    </div>
+    <div class="pstats" id="pStats" data-r style="--d:4"></div>
+  </div>
+  <div class="ph swap settle" id="pImg">
+    <img class="on" src="assets/img/p36.webp" alt="" data-f=".52 .14 1 .78">
+    <img src="assets/img/p37.webp" alt="" data-f=".0 .34 .44 .8">
+  </div>
+</section>
+
+<!-- 05 DYNAMICS -->
+<section class="sec bleed dyn s-porcelain on-light" id="dynamics" data-surface="light" data-name="Cảm giác lái">
+  <div class="ph swap settle" id="dImg">
+    <img class="on" src="assets/img/p38.webp" alt="" data-f=".3 .0 .88 1">
+    <img src="assets/img/p39.webp" alt="" data-f=".33 .28 .84 .78">
+    <img src="assets/img/p40.webp" alt="" data-f=".18 .05 .78 .95">
+  </div>
+  <div class="copy">
+    <div class="motif ink sides"></div>
+    <div class="stack" style="position:relative;z-index:3">
+      <p class="label eyebrow accent" data-r data-vi="Cảm giác lái" data-en="Driving dynamics"></p>
+      <h2 class="h2" data-r style="--d:1" data-vi="Êm ái trên đường thẳng, chính xác trong từng khúc cua" data-en="Serene on the straight, precise through every bend"></h2>
+    </div>
+    <div class="items" id="dItems" data-r style="--d:2;position:relative;z-index:3"></div>
+  </div>
+</section>
+
+<!-- 06 CHARGING -->
+<section class="sec charge s-onyx on-dark" id="charging" data-surface="dark" data-name="Sạc & quãng đường">
+  <div class="media mask-l settle"><img src="assets/img/p29.webp" alt="" data-f=".58 .46 .97 .82" data-p=".84 .55" data-pm=".5 .6" data-avoid=".charge .col"></div>
+  <div class="motif left"></div>
+  <div class="wrap">
+    <div class="col">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r data-vi="Sạc &amp; quãng đường" data-en="Charging &amp; range"></p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Sạc nhanh hơn. Đi xa hơn." data-en="Charge faster. Drive further."></h2>
+        <p class="small muted" data-r style="--d:2" data-vi="Mọi chiếc Torcal đều được xây dựng trên hệ thống điện 800V. Tại trạm sạc 400 kW, khoảng 10 phút là đủ thêm 357 km, ít hơn thời gian dừng chân thưởng một tách cà phê." data-en="Every Torcal is built on an 800V electrical system. At a 400 kW charging station, around 10 minutes adds 357 km of range, less time than it takes to stop for a coffee."></p>
+      </div>
+      <div class="cpanel" data-r style="--d:3">
+        <div class="screen"><img src="assets/img/p34w.webp" alt="" data-alt-vi="Màn hình sạc trong khoang lái Torcal" data-alt-en="Charging screen inside the Torcal"></div>
+        <div class="cstats">
+          <div><span class="stat"><span class="n" data-count="16">16</span><span class="u" data-vi="phút" data-en="min"></span></span><span class="small muted" data-vi="Sạc từ 10% đến 80%" data-en="Charging from 10% to 80%"></span></div>
+          <div><span class="stat"><span class="n" data-count="357">357</span><span class="u">km</span></span><span class="small muted" data-vi="Thêm sau 10 phút sạc" data-en="Added in 10 minutes"></span></div>
+          <div><span class="stat"><span class="n" data-count="600">600</span><span class="u">km</span></span><span class="small muted" data-vi="Quãng đường di chuyển" data-en="Range"></span></div>
+          <div><span class="stat"><span class="n" data-count="430">430</span><span class="u">kW</span></span><span class="small muted" data-vi="Công suất sạc DC tối đa" data-en="Maximum DC charging power"></span></div>
+        </div>
+      </div>
+      <div class="cbar" data-r style="--d:4">
+        <div class="track"><span class="fill"></span></div>
+        <div class="ticks"><span>10%</span><span>80%</span><span data-vi="16 phút" data-en="16 min"></span></div>
+        <p class="small muted" data-vi="Bảo hành pin 10 năm hoặc 160.000 dặm." data-en="Battery warranty of 10 years or 160,000 miles."></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 DESIGN · 2 nhịp -->
+<section class="design on-dark" id="design" data-surface="dark" data-name="Tầm nhìn thiết kế">
+  <div class="snap a"></div><div class="snap b"></div>
+  <div class="pin" id="dPin">
+    <div class="layer sketch m2"><div class="motif full" style="opacity:.09"></div><img src="assets/img/sketch.png" alt="" data-f=".33 .04 .97 .92" data-p=".62 .45"></div>
+    <div class="layer car m2 m4"><img src="assets/img/p11.webp" alt="" data-f=".42 .28 .94 .82" data-p=".66 .5"></div>
+    <div class="c1">
+      <p class="label eyebrow accent" data-vi="Thiết kế" data-en="Design"></p>
+      <p class="display" data-vi="Từ nét phác thảo đầu tiên" data-en="From the first sketch"></p>
+    </div>
+    <div class="c2">
+      <p class="label eyebrow accent" data-vi="đến những cung đường thật" data-en="to the open road"></p>
+      <h2 class="h2" data-vi="Mở ra chương mới cho thiết kế Bentley" data-en="The beginning of a new chapter in Bentley design"></h2>
+      <p class="small" data-vi="Torcal là chiếc Bentley sản xuất đầu tiên mang ngôn ngữ thiết kế mới. Thân xe gọn gàng hơn những chiếc SUV cỡ lớn quen thuộc, nhưng thế đứng vẫn vững chãi, đủ để cảm nhận sức mạnh ẩn bên trong." data-en="The Torcal is the first production Bentley to showcase a new design direction: a more compact footprint than a traditional large SUV, with a muscular stance that evokes its power."></p>
+      <ul class="pts small">
+        <li data-vi="Đầu và đuôi xe ngắn gọn" data-en="Short overhangs"></li>
+        <li data-vi="Vòm bánh xe đầy đặn" data-en="Wide wheel arches"></li>
+        <li data-vi="Dáng nghiêng thanh thoát" data-en="A clean, elegant silhouette"></li>
+      </ul>
+    </div>
+    <div class="edge"></div>
+    <div class="step label"><span>01</span><i></i><span>02</span></div>
+  </div>
+</section>
+
+<!-- 08 GRILLE -->
+<section class="sec grille s-onyx on-dark" id="grille" data-surface="dark" data-name="Floating Diamond Grille">
+  <div class="media swap settle m3 m4 fastswap" id="gImg">
+    <img class="on" src="assets/img/p35.webp" alt="" data-f=".0 .18 .6 .78" data-p=".34 .5" data-pm=".5 .22">
+    <img src="assets/img/p53.webp" alt="" data-f=".0 .0 .75 1" data-p=".4 .5">
+  </div>
+  <div class="view on-dark" data-r>
+    <div class="tabs label" role="tablist" id="gTabs">
+      <button type="button" role="tab" aria-selected="true" data-g="0" data-vi="Ánh sáng" data-en="Light"></button>
+      <button type="button" role="tab" aria-selected="false" data-g="1" data-vi="Cận cảnh" data-en="Detail"></button>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="copy">
+      <p class="label eyebrow accent" data-r>Floating Diamond Grille</p>
+      <h2 class="h2" data-r style="--d:1" data-vi="76 hoạ tiết kim cương phát sáng, từng chiếc được làm thủ công" data-en="76 illuminated diamonds, each one applied by hand"></h2>
+      <p class="small" data-r style="--d:2" data-vi="Floating Diamond Grille là nơi tay nghề thủ công gặp gỡ công nghệ ánh sáng. Viền lưới toả sáng dịu, đèn pha HD projection hoàn toàn mới, và mỗi lần Quý khách mở khoá, chiếc xe chào đón bằng một chuỗi ánh sáng riêng. Ánh sáng giờ đây là một phần của thiết kế." data-en="Combining intricate craftsmanship with technological innovation, the Floating Diamond Grille brings a glowing surround, new HD projection headlamps and a welcome sequence every time you unlock the car: a revolutionary approach to light in exterior design."></p>
+      <div class="det small muted" data-r style="--d:3">
+        <p data-vi="Torcal là chiếc Bentley đầu tiên mang biểu tượng wings mới." data-en="The Torcal is the first Bentley to wear the new Bentley wings."></p>
+        <p data-vi="Riêng Torcal S có màn chào đón bằng ánh sáng của riêng mình." data-en="The Torcal S performs a welcome sequence all of its own."></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 HERITAGE -->
+<section class="sec bleed herit s-porcelain on-light" id="heritage" data-surface="light" data-name="Dáng xe & di sản">
+  <div class="copy">
+    <div class="stack">
+      <p class="label eyebrow accent" data-r data-vi="Dáng xe &amp; di sản" data-en="Profile &amp; heritage"></p>
+      <h2 class="h2" data-r style="--d:1" data-vi="Càng nhìn gần, càng nhiều điều để khám phá" data-en="The closer you look, the more there is to see"></h2>
+    </div>
+    <p class="small" data-r style="--d:2" data-vi="Cửa hậu gợi nhớ giá chở hành lý trên chiếc Bentley &quot;Blue Train&quot; năm xưa. Đèn hậu mảnh, trải ngang, bên trong là cấu trúc kim cương 3D tinh xảo. Dọc thân xe, một dải kim loại vẽ nên đường liền mạch từ đuôi xe lên tới nắp ca-pô." data-en="Inspired by the luggage carrier of the historic ‘Blue Train’ Bentley, the tailgate leads the eye. Slim tail lamps hide an intricate 3D diamond structure, while a single line of metal runs from the rear to the bonnet."></p>
+    <div class="thumbs" data-r style="--d:3">
+      <div class="ph"><img src="assets/img/tz-filler.webp" alt="" data-f=".08 .2 .8 .9"><span class="cap" data-vi="Cảm hứng &quot;Blue Train&quot;" data-en="‘Blue Train’ inspiration"></span></div>
+      <div class="ph"><img src="assets/img/p09.webp" alt="" data-f=".3 .3 .88 .86"><span class="cap" data-vi="Đèn hậu kim cương 3D" data-en="3D diamond tail lamps"></span></div>
+    </div>
+    <p class="small muted" data-r style="--d:4" data-vi="Dưới mỗi cánh cửa, Welcome Lamps chiếu biểu tượng wings xuống mặt đường." data-en="Welcome Lamps project the Bentley wings onto the ground beneath each door."></p>
+  </div>
+  <div class="ph light big settle"><img src="assets/img/p13.webp" alt="" data-f=".3 .22 .98 .8" data-z="#91949d #a7a7ac"></div>
+</section>
+
+<!-- 10 CRAFT -->
+<section class="sec craft s-studio on-light" id="craft" data-surface="light" data-name="Nghệ thuật chế tác">
+  <div class="motif ink sides"></div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r data-vi="Nội thất" data-en="Interior"></p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Nơi ánh sáng, âm thanh và không gian được chăm chút như chất liệu" data-en="Where light, sound and space matter as much as materials"></h2>
+      </div>
+      <p class="small" data-r style="--d:2" data-vi="Bên trong Torcal, tay nghề thủ công và chất liệu tự nhiên hoà quyện cùng thiết kế số. Vân gỗ tự nhiên, da hoàn thiện bằng tay, len Merino nguyên chất (tuỳ chọn), núm điều khiển điểm sắc bronze với bề mặt khía kim cương êm tay. Khi Quý khách đổi chế độ lái, ghế ngồi, ánh sáng và cả âm thanh trong xe cũng đổi theo." data-en="Inside the Torcal, hand-craftsmanship and natural materials meet groundbreaking digital design. Natural wood grain, hand-finished leather, the option of pure Merino wool, switchgear with bronze highlights and diamond knurling. Choose a drive mode and the seats, the lighting, even the sound of the car respond."></p>
+    </div>
+    <div class="vis">
+      <div class="ph light swap" id="cImg" data-r style="--d:2">
+        <img class="on" src="assets/img/p17.webp" alt="" data-f=".12 .08 .95 .95"><img src="assets/img/p24.webp" alt="" data-f=".05 .05 .95 .95"><img src="assets/img/p25.webp" alt="" data-f=".05 .05 .95 .95"><img src="assets/img/p16.webp" alt="" data-f=".0 .0 1 1">
+      </div>
+      <div class="strip" id="cStrip" data-r style="--d:3">
+        <button type="button" data-c="0" aria-pressed="true"><img src="assets/img/p17.webp" alt=""><span data-vi="Khoang lái" data-en="Cockpit"></span></button>
+        <button type="button" data-c="1" aria-pressed="false"><img src="assets/img/p24.webp" alt=""><span data-vi="Torcal" data-en="Torcal"></span></button>
+        <button type="button" data-c="2" aria-pressed="false"><img src="assets/img/p25.webp" alt=""><span data-vi="Torcal S" data-en="Torcal S"></span></button>
+        <button type="button" data-c="3" aria-pressed="false"><img src="assets/img/p16.webp" alt=""><span data-vi="Ánh sáng nội thất" data-en="Ambient lighting"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 WELLBEING -->
+<section class="sec well s-onyx on-dark" id="wellbeing" data-surface="dark" data-name="Thư thái">
+  <div class="media swap settle mwell m4" id="wImg">
+    <img class="on" src="assets/img/p18.webp" alt="" data-f=".0 .0 .7 1" data-p=".78 .5">
+    <img src="assets/img/p19.webp" alt="" data-f=".2 .15 .8 .85">
+    <img src="assets/img/p20.webp" alt="" data-f=".0 .0 .9 .9">
+    <img src="assets/img/p21.webp" alt="" data-f=".1 .0 .95 .95">
+    <img src="assets/img/p23.webp" alt="" data-f=".03 .02 .97 .98" data-p=".5 .42" data-z="#2f3236 #161a1e" data-zs=".74">
+  </div>
+  <div class="wrap">
+    <div class="stack">
+      <p class="label eyebrow accent" data-r data-vi="Thư thái" data-en="Wellbeing"></p>
+      <h2 class="h2" data-r style="--d:1" data-vi="Mỗi hành trình, một khoảng lặng riêng" data-en="Every journey, a quiet space of your own"></h2>
+    </div>
+    <div class="stack" data-r style="--d:2">
+      <p class="small desc" id="wDesc"></p>
+      <div class="list" role="tablist" id="wList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 TECHNOLOGY -->
+<section class="sec tech s-porcelain on-light" id="technology" data-surface="light" data-name="Công nghệ">
+  <div class="wrap">
+    <div class="copy">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r data-vi="Công nghệ" data-en="Technology"></p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Công nghệ để mọi hành trình nhẹ nhàng hơn" data-en="Technology that makes life easier"></h2>
+      </div>
+      <div class="vtabs" role="tablist" id="tTabs" data-r style="--d:2"></div>
+      <p class="small muted desc vcopy" id="tDesc" data-r style="--d:3"></p>
+      <a class="link" href="#enquire" data-intent="brochure" data-r style="--d:4" data-vi="Xem đầy đủ trong brochure" data-en="See it all in the brochure"></a>
+    </div>
+    <div class="frame" data-r style="--d:2">
+      <div class="ph light swap" id="tImg">
+        <img class="on" src="assets/img/p22.webp" alt="" data-f=".25 .02 .85 .98"><img src="assets/img/p31.webp" alt="" data-f=".08 .04 .92 .96"><img src="assets/img/p28.webp" alt="" data-f=".5 .38 .96 .86"><img src="assets/img/p30.webp" alt="" data-f=".1 .05 .9 .95">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 SOUND -->
+<section class="sec bleed sound s-graphite on-dark" id="sound" data-surface="dark" data-name="Âm thanh">
+  <div class="ph settle"><img src="assets/img/p33.webp" alt="" data-f=".43 .02 .97 .98" data-z="#21252b #0c0d10"></div>
+  <div class="copy">
+    <div class="motif sides"></div>
+    <div class="stack">
+      <p class="label eyebrow accent" data-r data-vi="Âm thanh" data-en="Sound"></p>
+      <h2 class="h2" data-r style="--d:1" data-vi="Bản nhạc nền cho cảm giác lái thuần điện" data-en="The ultimate soundtrack to electric driving"></h2>
+    </div>
+    <div class="stack" data-r style="--d:2">
+      <h3 class="h4">Bentley Dynamic Symphony</h3>
+      <p class="small muted" data-vi="Lấy cảm hứng từ tiếng máy V8 của Bentley và được tạo nên từ nhạc cụ thật, âm thanh vang lên khi Quý khách tăng tốc mạnh ở chế độ Bentley và Sport, cao độ chuyển đổi tự nhiên theo từng nhịp chân ga." data-en="Inspired by the sound of Bentley V8 engines and created using live instruments, it plays when you accelerate hard in Bentley and Sport modes, responding naturally to your inputs with thrilling changes in pitch."></p>
+    </div>
+    <div class="sys" data-r style="--d:3">
+      <div>
+        <span class="tagline" data-vi="Tiêu chuẩn" data-en="Standard"></span>
+        <h3 class="h4">Bentley Signature</h3>
+        <span class="stat"><span class="n">620</span><span class="u">W</span><span class="n">16</span><span class="u" data-vi="loa" data-en="speakers"></span></span>
+        <p class="small muted" data-vi="Tiêu chuẩn trên mọi chiếc Torcal." data-en="Standard on every Torcal."></p>
+      </div>
+      <div>
+        <span class="tagline" data-vi="Tuỳ chọn" data-en="Optional"></span>
+        <h3 class="h4">Naim for Bentley</h3>
+        <span class="stat"><span class="n" data-num="1780">1.780</span><span class="u">W</span><span class="n">28</span><span class="u" data-vi="loa" data-en="speakers"></span></span>
+        <p class="small muted" data-vi="Dolby Atmos 7.1.4, các vùng âm thanh tuỳ chỉnh riêng, và loa ẩn trong tựa đầu ghế lái để chỉ dẫn đường chỉ đến tai người lái." data-en="Dolby Atmos 7.1.4, individually configurable sound zones, and speakers built invisibly into the driver’s headrest for navigation instructions that won’t disturb other occupants."></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 ATELIER -->
+<section class="sec atel s-onyx on-dark" id="atelier" data-surface="dark" data-name="Atelier cá nhân hoá">
+  <div class="motif tb"></div>
+  <div class="wrap">
+    <div class="top">
+      <div class="stack">
+        <p class="label eyebrow accent" data-r data-vi="Cá nhân hoá" data-en="Personalisation"></p>
+        <h2 class="h2" data-r style="--d:1" data-vi="Chiếc Torcal mang dấu ấn của riêng Quý khách" data-en="A Torcal like no other"></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;--d:2" data-r><p class="label muted hint"><i></i><span data-vi="Chọn một điểm trên xe để khám phá" data-en="Select a point on the car to explore"></span></p><a class="link" href="#enquire" data-intent="consultation" data-vi="Nhận tư vấn cá nhân hoá" data-en="Request a personalisation consultation"></a></div>
+    </div>
+    <div class="stage" id="aStage">
+      <svg class="lines" id="aLines" aria-hidden="true"></svg>
+      <div class="carbox" id="carbox" data-r style="--d:2">
+        <img src="assets/img/torcal-side.png" alt="" width="1958" height="698" data-alt-vi="Bentley Torcal nhìn ngang" data-alt-en="Bentley Torcal, side view">
+        <div id="aHots"></div>
+      </div>
+      <div id="aLabels"></div>
+      <div class="zchips" id="aChips" role="tablist"></div>
+      <div class="pop on-dark" id="aPop" role="dialog" aria-modal="false"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 ENQUIRE -->
+<section class="sec enq s-porcelain on-light" id="enquire" data-surface="light" data-name="Đăng ký">
+  <div class="media settle"><img src="assets/img/p37.webp" alt="" data-f=".03 .34 .45 .8" data-p=".25 .55" data-pm=".5 .55"></div>
+  <div class="wrap">
+    <div class="panel" data-r>
+      <div class="stack">
+        <p class="label eyebrow accent" data-vi="Đăng ký" data-en="Enquire"></p>
+        <h2 class="h2" data-vi="Bắt đầu hành trình cùng Torcal" data-en="Begin your Torcal journey"></h2>
+        <p class="small muted lead-p" data-vi="Để lại thông tin, đội ngũ tư vấn sẽ liên hệ giới thiệu chi tiết về Torcal vào thời gian thuận tiện nhất cho Quý khách, hoặc gửi Quý khách bản brochure chính thức." data-en="Leave your details and our team will be in touch to introduce the Torcal at a time that suits you, or send you the official brochure."></p>
+      </div>
+      <form class="lead" id="leadForm" novalidate>
+        <div class="intent">
+          <label><input type="radio" name="intent" value="consultation" checked><span data-vi="Đăng ký tư vấn" data-en="Consultation"></span></label>
+          <label><input type="radio" name="intent" value="brochure"><span data-vi="Nhận brochure" data-en="Brochure"></span></label>
+        </div>
+        <div class="field"><label for="f-name" data-vi="Họ và tên" data-en="Full name"></label><input id="f-name" name="full_name" autocomplete="name"><span class="err" data-vi="Quý khách vui lòng nhập họ và tên." data-en="Please enter your full name."></span></div>
+        <div class="two">
+          <div class="field"><label for="f-phone" data-vi="Số điện thoại" data-en="Phone"></label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"><span class="err" data-vi="Số điện thoại chưa đúng, Quý khách vui lòng kiểm tra lại." data-en="Please check your phone number."></span></div>
+          <div class="field"><label for="f-email" id="emailLab" data-vi="Email (không bắt buộc)" data-en="Email (optional)"></label><input id="f-email" name="email" type="email" autocomplete="email"><span class="err" data-vi="Email chưa đúng định dạng. Brochure sẽ được gửi qua email này." data-en="Please check your email address. The brochure will be sent to it."></span></div>
+        </div>
+        <div class="field"><label for="f-model" data-vi="Dòng xe quan tâm" data-en="Model of interest"></label>
+          <select id="f-model" name="model_interest"><option value="" data-vi="Chọn dòng xe" data-en="Select a model"></option><option value="torcal">Torcal</option><option value="torcal_s">Torcal S</option><option value="torcal_first_edition">Torcal First Edition</option></select>
+          <span class="err" data-vi="Quý khách vui lòng chọn dòng xe quan tâm." data-en="Please select a model."></span></div>
+        <label class="consent" id="consentRow"><input type="checkbox" name="consent"><span data-vi="Tôi đồng ý được liên hệ về yêu cầu này, theo Chính sách bảo mật thông tin." data-en="I agree to be contacted about this enquiry, in line with the Privacy Policy."></span></label>
+        <div><button class="btn btn--primary" type="submit" id="fSubmit" data-vi="Gửi đăng ký" data-en="Submit"></button></div>
+        <div class="form-msg" aria-live="polite">
+          <h3 class="h3" data-vi="Cảm ơn Quý khách" data-en="Thank you"></h3>
+          <p class="small" id="okText"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="contact" data-surface="dark" data-name="Liên hệ">
+  <div class="wrap">
+    <img src="assets/img/logo-light.png" alt="Bentley" width="974" height="437">
+    <div class="cols small">
+      <div><p class="label" data-vi="Liên hệ" data-en="Contact"></p><p style="opacity:.6" data-vi="Thông tin showroom sẽ được cập nhật." data-en="Showroom details coming soon."></p></div>
+      <div><a href="#" data-vi="Chính sách bảo mật" data-en="Privacy policy"></a><a href="#" data-vi="Điều khoản sử dụng" data-en="Terms of use"></a></div>
+    </div>
+    <div class="lang label" role="group" aria-label="Ngôn ngữ"><button type="button" data-lang="vi" aria-pressed="true">Tiếng Việt</button><button type="button" data-lang="en" aria-pressed="false">English</button></div>
+    <p class="legal" data-vi="Bentley, biểu tượng Bentley Wings và Torcal là thương hiệu của Bentley Motors Limited." data-en="Bentley, the Bentley Wings and Torcal are trademarks of Bentley Motors Limited."></p>
+  </div>
+</footer>
+
+<div class="ovl on-light" id="cmp" role="dialog" aria-modal="true" aria-labelledby="cmpT">
+  <div class="card">
+    <button type="button" class="x" id="cmpClose" aria-label="Đóng"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1 11 11M11 1 1 11" stroke="currentColor" stroke-width="1.2" fill="none"/></svg></button>
+    <h2 class="h3" id="cmpT" data-vi="So sánh thông số" data-en="Compare specifications"></h2>
+    <table><thead><tr><th></th><th>Torcal</th><th>Torcal S</th></tr></thead><tbody id="cmpBody"></tbody></table>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, lang='vi', RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function L(o){return o[lang]}
+  function num(n,dec){var s=dec?n.toFixed(dec):String(Math.round(n)); if(lang==='vi'){s=s.replace('.',',');s=s.replace(/\B(?=(\d{3})+(?!\d))/g,'.')}else{s=s.replace(/\B(?=(\d{3})+(?!\d))/g,',')} return s}
+  var mobile=function(){return innerWidth<1024||innerWidth<=innerHeight};
+
+  /* ---------- Căn khung ảnh theo vùng xe ----------
+     data-f="x1 y1 x2 y2": vùng chủ thể (tỉ lệ 0..1). data-p="px py": vị trí mong muốn của tâm vùng trong khung (mặc định giữa).
+     Ảnh luôn cover; nếu vùng lọt khung thì không bao giờ bị cắt. */
+  function fit(img){
+    var f=img.getAttribute('data-f'); if(!f||!img.naturalWidth)return;
+    var b=f.split(/\s+/).map(Number), box=img.parentElement, W=box.clientWidth, H=box.clientHeight; if(!W||!H)return;
+    var pa=(mobile()&&img.dataset.pm?img.dataset.pm:(img.dataset.p||'.5 .5')).split(/\s+/).map(Number);
+    var s=Math.max(W/img.naturalWidth,H/img.naturalHeight), dw=img.naturalWidth*s, dh=img.naturalHeight*s;
+    function axis(a1,a2,D,V,pref){var o=D-V; if(o<=0.5)return 50; var c=(a1+a2)/2*D, v=c-pref*V, lo=a2*D-V, hi=a1*D;
+      if(lo<=hi){v=Math.min(Math.max(v,lo),hi)} else {v=c-V/2} v=Math.min(Math.max(v,0),o); return v/o*100}
+    var bw=(b[2]-b[0])*img.naturalWidth, bh=(b[3]-b[1])*img.naturalHeight;
+    var zs=mobile()?0:parseFloat(img.getAttribute('data-zs')||'0');
+    if(img.hasAttribute('data-z')&&(zs||bw*s>W*1.001||bh*s>H*1.001)){
+      var s2=Math.min(W/bw,H/bh)*(zs||.96), w2=img.naturalWidth*s2, h2=img.naturalHeight*s2;
+      var l=W*pa[0]-(b[0]+b[2])/2*w2, t=H*pa[1]-(b[1]+b[3])/2*h2;
+      l=Math.min(Math.max(l,W-w2),0); if(w2<W)l=(W-w2)/2; t=Math.min(Math.max(t,H-h2),0); if(h2<H)t=(H-h2)/2;
+      img.style.cssText+=';max-width:none;max-height:none;object-fit:fill;width:'+w2+'px;height:'+h2+'px;left:'+l+'px;top:'+t+'px;right:auto;bottom:auto;'+(zs?'-webkit-mask-image:radial-gradient(closest-side,#000 72%,transparent 100%);mask-image:radial-gradient(closest-side,#000 72%,transparent 100%)':'-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(180deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(180deg,transparent,#000 4%,#000 96%,transparent);mask-composite:intersect')+';transform:none';
+      var zc=(img.getAttribute('data-z')||'').split(/\s+/).filter(Boolean); if(zc.length){box.style.setProperty('--zbg','linear-gradient(180deg,'+zc[0]+','+(zc[1]||zc[0])+')')} else box.style.setProperty('--zbg','url('+img.getAttribute('src')+')'); box.classList.add('zoomed'); img.dataset.zoomed='1'; return}
+    if(img.dataset.zoomed){['max-width','max-height','object-fit','width','height','left','top','right','bottom','-webkit-mask-image','-webkit-mask-composite','mask-image','mask-composite'].forEach(function(k){img.style.removeProperty(k)});delete img.dataset.zoomed;
+      if(!box.querySelector('img[data-zoomed]'))box.classList.remove('zoomed')}
+    var px=axis(b[0],b[2],dw,W,pa[0]), py=axis(b[1],b[3],dh,H,pa[1]);
+    img.style.objectPosition=px.toFixed(2)+'% '+py.toFixed(2)+'%';
+    var av=img.getAttribute('data-avoid'); if(av){var el=document.querySelector(av); if(el){el.style.maxWidth='';
+      if(!mobile()&&innerWidth/innerHeight>1.15){var br=box.getBoundingClientRect(), vx=(dw-W)*px/100, carL=br.left+b[0]*dw-vx, carR=br.left+b[2]*dw-vx, er=el.getBoundingClientRect();
+        if(img.dataset.side==='r'){var mw=er.right-carR-40; if(mw<er.width)el.style.maxWidth=Math.max(300,mw)+'px'}
+        else{var mw2=carL-er.left-40; if(mw2<er.width)el.style.maxWidth=Math.max(300,mw2)+'px'}}}}
+  }
+  function fitAll(){document.querySelectorAll('img[data-f]').forEach(fit)}
+  document.querySelectorAll('img[data-f]').forEach(function(i){if(i.complete)fit(i);else i.addEventListener('load',function(){fit(i)})});
+
+  /* ---------- Menu ---------- */
+  var ACTS=[
+    {vi:'I · Gặp gỡ',en:'I · Encounter',items:[['01','Torcal','Torcal','hero'],['02','Tóm lược','At a glance','glance']]},
+    {vi:'II · Lựa chọn',en:'II · Choice',items:[['03','Ba phiên bản','Three models','models']]},
+    {vi:'III · Sức mạnh & tự do',en:'III · Power & freedom',items:[['04','Hiệu năng','Performance','performance'],['05','Cảm giác lái','Driving dynamics','dynamics'],['06','Sạc & quãng đường','Charging & range','charging']]},
+    {vi:'IV · Thiết kế',en:'IV · Design',items:[['07','Tầm nhìn thiết kế','Design vision','design'],['08','Floating Diamond Grille','Floating Diamond Grille','grille'],['09','Dáng xe & di sản','Profile & heritage','heritage']]},
+    {vi:'V · Không gian riêng',en:'V · Sanctuary',items:[['10','Nghệ thuật chế tác','Automotive craft','craft'],['11','Thư thái','Wellbeing','wellbeing']]},
+    {vi:'VI · Trí tuệ & cảm xúc',en:'VI · Intelligence & emotion',items:[['12','Công nghệ','Technology','technology'],['13','Âm thanh','Sound','sound']]},
+    {vi:'VII · Của riêng Quý khách',en:'VII · Yours alone',items:[['14','Atelier cá nhân hoá','Personalisation atelier','atelier'],['15','Đăng ký','Enquire','enquire'],['16','Liên hệ','Contact','contact']]}
+  ];
+  var menuActs=document.getElementById('menuActs'), burger=document.getElementById('burger'), menu=document.getElementById('menu');
+  function renderMenu(){menuActs.innerHTML=ACTS.map(function(a){return '<div class="act"><p class="label accent">'+a[lang]+'</p>'+a.items.map(function(it){return '<a href="#'+it[3]+'"><span>'+it[0]+'</span>'+(lang==='vi'?it[1]:it[2])+'</a>'}).join('')+'</div>'}).join('')}
+  function openMenu(on){root.classList.toggle('menu-open',on);burger.setAttribute('aria-expanded',String(on));burger.querySelector('.label').textContent=on?(lang==='vi'?'Đóng':'Close'):'Menu';if(on){setTimeout(function(){var f=menu.querySelector('a');f&&f.focus()},60)}else burger.focus()}
+  burger.addEventListener('click',function(){openMenu(!root.classList.contains('menu-open'))});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))openMenu(false)});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){if(root.classList.contains('menu-open'))openMenu(false);closeCmp()}
+    if(e.key==='Tab'&&root.classList.contains('menu-open')){var f=[burger].concat([].slice.call(menu.querySelectorAll('a,button'))),i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}
+  });
+
+  function swap(sel,i){document.querySelectorAll(sel+' > img').forEach(function(im,k){im.classList.toggle('on',k===i)})}
+  function sel(group,attr,i){document.querySelectorAll(group+' ['+attr+']').forEach(function(b){b.setAttribute('aria-selected',String(+b.getAttribute(attr)===i))})}
+  function countTo(el,to,dec){if(RM){el.textContent=num(to,dec);return}var t0=null,D=1400;(function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/D),e=1-Math.pow(1-p,3);el.textContent=num(to*e,dec);if(p<1)requestAnimationFrame(step)})(performance.now())}
+
+  /* ---------- 03 Models ---------- */
+  var V=[
+    {name:'Torcal',code:'torcal',vi:{line:'Cân bằng hoàn hảo giữa hiệu năng điện đầy phấn khích và sự sang trọng tiến bộ.',items:[['Ngoại thất','Chi tiết satin silver, lưới tản nhiệt với chuỗi ánh sáng chào đón riêng'],['Mâm','22" Turbine Wheel, Tungsten with Bright Machined Spokes (Bright Design Specification)'],['Nội thất','Màn hình cong, gỗ tự nhiên, da hoàn thiện thủ công'],['Hiệu năng','821 PS · 1.155 Nm · 0 đến 100 km/h trong 3,4 giây']],cta:'Nhận tư vấn Torcal'},
+      en:{line:'The perfect balance of exhilarating electric performance and progressive, life-enhancing luxury.',items:[['Exterior','Satin silver detailing, a grille with its own welcome sequence'],['Wheels','22" Turbine Wheel, Tungsten with Bright Machined Spokes (Bright Design Specification)'],['Interior','Curved screens, natural wood veneers, hand-finished leather'],['Performance','821 PS · 1,155 Nm · 0 to 100 km/h in 3.4 sec']],cta:'Request a Torcal consultation'}},
+    {name:'Torcal S',code:'torcal_s',vi:{line:'Thêm tinh thần thể thao cho hướng thiết kế mới của Bentley, cùng Launch Control.',items:[['Ngoại thất','Chi tiết màu đen thay cho satin silver, vẻ kín đáo đầy uy lực'],['Mâm','22" S Wheel, Black with Bright Machined Spokes, cùm phanh đỏ'],['Nội thất','Phối màu hai tông riêng của dòng S, ốp Piano Black'],['Hiệu năng','888 PS · 1.350 Nm · 0 đến 100 km/h trong 2,9 giây']],cta:'Nhận tư vấn Torcal S'},
+      en:{line:'Bentley’s new design vision with extra sporting attitude, plus Launch Control.',items:[['Exterior','Black detailing in place of satin silver, subtly stealthy'],['Wheels','22" S Wheel, Black with Bright Machined Spokes, red brake callipers'],['Interior','Two-tone S colour layout, Piano Black veneers'],['Performance','888 PS · 1,350 Nm · 0 to 100 km/h in 2.9 sec']],cta:'Request a Torcal S consultation'}},
+    {name:'First Edition',code:'torcal_first_edition',vi:{line:'Tôn vinh nghệ thuật chế tác, hiệu năng và công nghệ của chiếc Bentley thuần điện đầu tiên.',items:[['Ngoại thất','Huy hiệu First Edition, tuỳ chọn bodykit Carbon Fibre'],['Mâm','22" First Edition Wheel, cùm phanh Graphene Grey'],['Nội thất','Ốp Carbon Fibre, hoạ tiết chần ghế riêng cho phiên bản này'],['Đặc quyền','Bệ bước First Edition, những tuỳ chọn được ưa chuộng nhất']],cta:'Nhận tư vấn First Edition'},
+      en:{line:'A celebration of the craftsmanship, performance and technology of Bentley’s first all-electric vehicle.',items:[['Exterior','First Edition badging, optional Carbon Fibre bodykit'],['Wheels','22" First Edition Wheel, Graphene Grey brake callipers'],['Interior','Carbon Fibre veneers, a quilt pattern unique to this car'],['Exclusives','First Edition treadplates, the most desirable options']],cta:'Request a First Edition consultation'}}
+  ];
+  var vCur=0;
+  function renderV(instant){var v=V[vCur],t=L(v),fades=document.querySelectorAll('.models .vcopy');
+    function fill(){document.getElementById('vTitle').textContent=v.name;document.getElementById('vLine').textContent=t.line;
+      document.getElementById('vList').innerHTML=t.items.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join('');
+      var c=document.getElementById('vCta');c.textContent=t.cta;c.dataset.model=v.code;fades.forEach(function(f){f.classList.remove('fade')})}
+    ['.vmain','.vthumb','.vwheel'].forEach(function(s){swap(s,vCur)}); sel('#vTabs','data-v',vCur);
+    if(instant)fill();else{fades.forEach(function(f){f.classList.add('fade')});setTimeout(fill,480)}}
+  document.querySelectorAll('#vTabs button').forEach(function(b){b.addEventListener('click',function(){vCur=+b.dataset.v;renderV()})});
+
+  var CMP=[[{vi:'Công suất',en:'Power'},[821,0,'PS'],[888,0,'PS*']],[{vi:'Mô-men xoắn',en:'Torque'},[1155,0,'Nm'],[1350,0,'Nm*']],[{vi:'0 đến 100 km/h',en:'0 to 100 km/h'},[3.4,1,'s'],[2.9,1,'s*']],[{vi:'Tốc độ tối đa',en:'Top speed'},[250,0,'km/h'],[260,0,'km/h*']],[{vi:'Pin (tổng / khả dụng)',en:'Battery (gross / net)'},'bat','bat'],[{vi:'Sạc DC tối đa',en:'Max DC charging'},[430,0,'kW'],[430,0,'kW']],[{vi:'Dài · rộng (kèm gương) · cao',en:'Length · width (mirrors) · height'},'dim','dim'],[{vi:'Chiều dài cơ sở',en:'Wheelbase'},[3023,0,'mm'],[3023,0,'mm']],[{vi:'Khối lượng không tải (EU)',en:'Kerb weight (EU)'},[2795,0,'kg'],[2795,0,'kg']]];
+  function cv(x){if(x==='dim')return num(5008)+' · '+num(2198)+' · '+num(1677)+' mm';if(x==='bat')return num(113.2,1)+' / '+num(108.7,1)+' kWh';var u=x[2].replace('*',''),st=x[2].indexOf('*')>0?'*':'';if(u==='s')u=lang==='vi'?'giây':'sec';return num(x[0],x[1])+' '+u+st}
+  function renderCmp(){document.getElementById('cmpBody').innerHTML=CMP.map(function(r){return '<tr><th>'+L(r[0])+'</th><td>'+cv(r[1])+'</td><td>'+cv(r[2])+'</td></tr>'}).join('')+'<tr><td colspan="3" class="muted">* '+(lang==='vi'?'Với Launch Control':'With Launch Control')+'</td></tr>'}
+  var cmp=document.getElementById('cmp');
+  function closeCmp(){cmp.classList.remove('open')}
+  document.getElementById('cmpOpen').addEventListener('click',function(){cmp.classList.add('open');document.getElementById('cmpClose').focus()});
+  document.getElementById('cmpClose').addEventListener('click',closeCmp);
+  cmp.addEventListener('click',function(e){if(e.target===cmp)closeCmp()});
+
+  /* ---------- 04 Performance ---------- */
+  var P=[[821,1155,3.4,250],[888,1350,2.9,260]], pCur=0;
+  var PL=[{vi:'Công suất',en:'Power',u:'PS'},{vi:'Mô-men xoắn',en:'Torque',u:'Nm'},{vi:'0 đến 100 km/h',en:'0 to 100 km/h',u:{vi:'giây',en:'sec'}},{vi:'Tốc độ tối đa',en:'Top speed',u:'km/h'}];
+  function renderP(animate){var box=document.getElementById('pStats');
+    box.innerHTML=PL.map(function(l,i){var u=typeof l.u==='string'?l.u:l.u[lang];return '<div><span class="stat"><span class="n">'+num(P[pCur][i],i===2?1:0)+'</span><span class="u">'+u+'</span></span><span class="small muted">'+l[lang]+'</span></div>'}).join('');
+    if(animate)box.querySelectorAll('.n').forEach(function(n,i){countTo(n,P[pCur][i],i===2?1:0)});
+    document.getElementById('pNote').textContent=pCur?(lang==='vi'?'Với Launch Control':'With Launch Control'):'';
+    swap('#pImg',pCur); sel('#pTabs','data-p',pCur)}
+  document.querySelectorAll('#pTabs button').forEach(function(b){b.addEventListener('click',function(){pCur=+b.dataset.p;renderP(true)})});
+
+  /* ---------- 05 Dynamics ---------- */
+  var D=[{t:'Bentley Apex Ride',vi:'Hệ thống treo chủ động thế hệ mới. Mỗi bánh xe có giảm chấn hai van với bơm thuỷ lực điều khiển điện riêng, giữ thân xe phẳng khi vào cua mà không đánh đổi sự êm ái khi đi thẳng.',en:'Next-generation active suspension. Every wheel has a two-valve damper with its own electrically controlled hydraulic pump, keeping the body flat through corners without compromising comfort on the straight.'},
+    {t:'Electronic All-Wheel Steering',vi:'Ở tốc độ thấp, bánh sau đánh ngược chiều tới 5 độ, thu bán kính quay đầu còn 11,1 m. Ở tốc độ cao, bánh sau đánh cùng chiều để mỗi lần chuyển làn mượt mà, tự tin.',en:'At low speeds the rear wheels steer up to five degrees against the fronts, reducing the turning circle to just 11.1 m. At higher speeds they steer with the fronts for smooth, confident lane changes.'},
+    {t:'Curation Engine',vi:'Bốn chế độ Comfort, Sport, Bentley và Refresh không chỉ thay đổi cách xe vận hành mà còn phối âm thanh, mát-xa ghế, cửa sổ trời và ánh sáng nội thất. Khi cần, hai chế độ Snow/Grass và Dirt/Trail giữ độ bám trên mặt đường trơn.',en:'Four modes, Comfort, Sport, Bentley and Refresh, change not only how the car drives but also its sound, seat massage, sunroof and ambient lighting. When needed, Snow/Grass and Dirt/Trail maximise traction on slippery surfaces.'}];
+  var dCur=0;
+  function renderD(){document.getElementById('dItems').innerHTML=D.map(function(d,i){return '<div class="it'+(i===dCur?' on':'')+'"><button type="button" class="h4" data-d="'+i+'" aria-expanded="'+(i===dCur)+'"><span>0'+(i+1)+'</span>'+d.t+'<i style="margin-left:auto"></i></button><div class="body"><p class="small muted">'+d[lang]+'</p></div></div>'}).join('');swap('#dImg',dCur)}
+  document.getElementById('dItems').addEventListener('click',function(e){var b=e.target.closest('[data-d]');if(b&&+b.dataset.d!==dCur){dCur=+b.dataset.d;
+    document.querySelectorAll('#dItems .it').forEach(function(it,i){it.classList.toggle('on',i===dCur);it.querySelector('button').setAttribute('aria-expanded',String(i===dCur))});swap('#dImg',dCur)}});
+
+  /* ---------- 07 Design · tiến trình cuộn ---------- */
+  var dsec=document.getElementById('design'), pin=document.getElementById('dPin');
+  function onDesign(){var r=dsec.getBoundingClientRect(), vh=innerHeight, p=Math.min(1,Math.max(0,-r.top/vh));
+    pin.style.setProperty('--p',p.toFixed(3)); pin.style.setProperty('--wp',(100-p*100).toFixed(2))}
+
+  /* ---------- 08 Grille ---------- */
+  var gCur=0,gHold=0,gSec=document.getElementById('grille');
+  function setG(i){gCur=i;swap('#gImg',i);sel('#gTabs','data-g',i)}
+  document.getElementById('gTabs').addEventListener('click',function(e){var b=e.target.closest('[data-g]');if(!b)return;setG(+b.dataset.g);gHold=Date.now()});
+  setInterval(function(){if(RM||Date.now()-gHold<8000)return;var r=gSec.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5)setG(1-gCur)},3200);
+
+  /* ---------- 10 Craft ---------- */
+  document.getElementById('cStrip').addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(!b)return;var i=+b.dataset.c;swap('#cImg',i);this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(+x.dataset.c===i))})});
+
+  /* ---------- 11 Wellbeing ---------- */
+  var W=[{vi:['Chuẩn mực mới cho ghế ngồi','Ghế trước chỉnh điện 16 hướng, có sưởi, thông gió và mát-xa. Với tuỳ chọn Wellness Seating, ghế tự giữ nhiệt độ bề mặt dễ chịu và thay đổi nhẹ áp lực các túi khí suốt hành trình, giúp Quý khách bớt mỏi trên những chặng đường dài.'],en:['A new benchmark for seating','16-way front seats with heating, ventilation and massage. Optional Wellness Seating balances the temperature at the seat surface and varies the pressure of air pockets throughout your journey, reducing fatigue on long drives.']},
+    {vi:['Bullseye Vector Sphere','Cửa gió Bullseye đã có mặt trên mọi chiếc Bentley từ năm 1965. Trên Torcal, cửa gió được điều khiển điện, xoay trọn 360 độ, hai luồng gió hoà làm một, êm mà hiệu quả.'],en:['Bullseye Vector Sphere','Building on the Bullseye vents found in every Bentley since 1965: now electronically controlled and fully 360 degrees, with two air streams converging into one for quiet, effective ventilation.']},
+    {vi:['Frosted Diamond Switchable Sunroof','Cửa sổ trời toàn cảnh chuyển sang mờ trong tích tắc, hoàn toàn yên lặng, với các vùng kính chia theo hoạ tiết kim cương đặc trưng của Bentley (tuỳ chọn).'],en:['Frosted Diamond Switchable Sunroof','A panoramic sunroof that turns frosted in an instant, in complete silence, divided into zones by Bentley’s frosted diamond pattern (optional).']},
+    {vi:['Dynamic Waterfall Lighting','Hơn 450 đèn LED trên cửa và táp-lô tạo nên những dải màu chuyển động không ngừng, gợi cảm hứng từ thiên nhiên, đặc biệt cuốn hút trên những chuyến đi đêm.'],en:['Dynamic Waterfall Lighting','More than 450 LEDs across the doors and lower instrument panel create a constantly changing, nature-inspired display, especially captivating at night.']},
+    {vi:['Chỗ cho mọi thứ','Khoang hành lý 421 lít, mở rộng lên 560 lít khi tháo tấm che và 1.276 lít khi gập hàng ghế sau. Dưới nắp ca-pô còn có thêm khoang chứa đồ 90 lít.'],en:['A place for everything','421 litres of boot space beneath the parcel shelf, rising to 560 litres without it and 1,276 litres with the rear seats folded, plus a 90-litre storage space under the bonnet.']}];
+  var wCur=0, wDesc=document.getElementById('wDesc');
+  function renderW(){document.getElementById('wList').innerHTML=W.map(function(w,i){return '<button type="button" role="tab" data-w="'+i+'" aria-selected="'+(i===wCur)+'"><span class="n">0'+(i+1)+'</span><span class="h4">'+w[lang][0]+'</span><span class="d small muted">'+w[lang][1]+'</span></button>'}).join('');wDesc.textContent=W[wCur][lang][1];swap('#wImg',wCur)}
+  document.getElementById('wList').addEventListener('click',function(e){var b=e.target.closest('[data-w]');if(!b)return;wCur=+b.dataset.w;sel('#wList','data-w',wCur);swap('#wImg',wCur);
+    wDesc.style.transition='opacity .4s';wDesc.style.opacity=0;setTimeout(function(){wDesc.textContent=W[wCur][lang][1];wDesc.style.opacity=1},380)});
+
+  /* ---------- 12 Tech ---------- */
+  var T=[{vi:['Màn hình OLED','Trung tâm táp-lô là màn hình cảm ứng HD OLED cong dọc 12,25 inch, màn OLED đầu tiên trên một chiếc Bentley: hình ảnh sắc nét, màu sống động, sắc đen sâu thẳm.'],en:['OLED displays','At the heart of the fascia is a vertically curved 12.25" HD touchscreen. The first OLED screen to be fitted in a Bentley, it offers sharp, fast visuals, with vivid colour and true blacks.']},
+    {vi:['Màn hình lái & Head-Up Display','Sau vô-lăng là màn hình lái OLED cong ngang 14,25 inch. Head-Up Display thực tế tăng cường đưa tốc độ giới hạn và chỉ dẫn đường vào ngay tầm mắt, để Quý khách luôn dõi theo mặt đường.'],en:['Driver display & Head-Up Display','Behind the wheel, a 14.25" horizontally curved OLED driver’s display. The augmented reality Head-Up Display projects speed limits and navigation directions into your line of sight, so you never need to look away from the road.']},
+    {vi:['Hỗ trợ lái & đỗ xe','Adaptive Cruise Control tiêu chuẩn tự giữ khoảng cách với xe phía trước, kể cả khi dòng xe dừng rồi đi tiếp. Gói tuỳ chọn Touring Assist hỗ trợ đánh lái và chuyển làn trên những chặng dài. Khi đỗ xe, Intelligent Park Assist và Remote Park Assist giúp mọi thao tác thật nhẹ nhàng.'],en:['Driving & parking assistance','Adaptive Cruise Control comes as standard, keeping a safe distance from the car in front, even in stop-start traffic. The optional Touring Assist package helps with steering and lane changes on long journeys, while Intelligent Park Assist and Remote Park Assist make every manoeuvre effortless.']},
+    {vi:['My Bentley','Điện thoại trở thành chìa khoá. Qua ứng dụng My Bentley, Quý khách xem mức sạc và quãng đường còn lại, làm mát hay sưởi ấm khoang xe trước khi đi, và thậm chí để xe tự đỗ trong lúc mình đứng ngoài quan sát. Trong xe, chỉ cần nói tự nhiên, Torcal sẽ hiểu.'],en:['My Bentley','Your phone becomes the key. With the My Bentley app you can check charging status and range, pre-heat or pre-cool the cabin, and even watch the car park itself. Inside, simply speak naturally and the Torcal responds.']}];
+  var tCur=0, tDesc=document.getElementById('tDesc');
+  function renderT(){document.getElementById('tTabs').innerHTML=T.map(function(t,i){return '<button type="button" role="tab" data-t="'+i+'" aria-selected="'+(i===tCur)+'"><span>0'+(i+1)+'</span>'+t[lang][0]+'</button>'}).join('');tDesc.textContent=T[tCur][lang][1];swap('#tImg',tCur)}
+  document.getElementById('tTabs').addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(!b)return;tCur=+b.dataset.t;sel('#tTabs','data-t',tCur);swap('#tImg',tCur);
+    tDesc.classList.add('fade');setTimeout(function(){tDesc.textContent=T[tCur][lang][1];tDesc.classList.remove('fade')},420)});
+
+  /* ---------- 14 Atelier ---------- */
+  function nm(f){return f.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase()})}
+  var Z=[
+    {k:'wheels',vi:'Mâm xe',en:'Wheels',pt:[.835,.80],side:'r',ly:.86,contain:1,items:[
+      ['wheel_21_flux_silver','21" Flux Wheel, Silver','s0'],['wheel_21_flux_black_bright_machined','21" Flux Wheel, Black with Bright Machined Spokes','o'],['wheel_22_turbine_black','22" Turbine Wheel, Black','o'],['wheel_22_turbine_black_bright_machined','22" Turbine Wheel, Black with Bright Machined Spokes','o'],['wheel_22_turbine_tungsten_bright_machined','22" Turbine Wheel, Tungsten with Bright Machined Spokes','o'],['wheel_22_vortex_forged_carbon_fibre_mulliner','22" Vortex Forged Wheel with Carbon Fibre Inserts','m'],['wheel_22_s_silver','22" S Wheel, Silver','s1'],['wheel_22_s_black_bright_machined','22" S Wheel, Black with Bright Machined Spokes','o'],['wheel_22_s_black','22" S Wheel, Black','o'],['wheel_22_first_edition_black_liquid_silver','22" First Edition Wheel, Black with Liquid Silver Spokes','s2']]},
+    {k:'calipers',vi:'Cùm phanh',en:'Brake calipers',pt:[.205,.72],side:'l',ly:.86,contain:1,items:[['caliper_black','Black','s0'],['caliper_pillar_box_red','Pillar Box Red','s1'],['caliper_graphene_grey','Graphene Grey','s2'],['caliper_mandarin','Mandarin','o'],['caliper_signal_yellow','Signal Yellow','o'],['caliper_topaz_blue','Topaz Blue','o']]},
+    {k:'paint',vi:'Màu sơn',en:'Exterior colours',pt:[.56,.56],side:'r',ly:.5,items:['Beluga','Dark Sapphire','Glacier White','Moonbeam','Onyx','St. James’ Red','Thunder'].map(function(p){return [null,p,'p']}).concat([[null,'Astral','x'],[null,'Electrum','x']])},
+    {k:'veneers',vi:'Ốp nội thất',en:'Veneers',pt:[.6,.25],side:'r',ly:.14,items:[
+      ['veneer_crown_cut_walnut_open_pore','Crown Cut Walnut, Open Pore','s0'],['veneer_piano_black','Piano Black','s1'],['veneer_carbon_fibre_gloss','Carbon Fibre, Gloss','s2'],['veneer_crown_cut_walnut_gloss','Crown Cut Walnut, Gloss','o'],['veneer_dark_burr_walnut_open_pore','Dark Burr Walnut, Open Pore','o'],['veneer_dark_fiddleback_eucalyptus_gloss','Dark Fiddleback Eucalyptus, Gloss','o'],['veneer_liquid_amber_gloss','Liquid Amber, Gloss','o'],['veneer_ombre_walnut_open_pore_mulliner','Ombre Walnut, Open Pore','m'],['veneer_sunburst_aluminium_mulliner','Sunburst Aluminium','m'],['veneer_piano_cricket_ball_mulliner','Piano Cricket Ball','m'],['veneer_piano_gravity_grey_mulliner','Piano Gravity Grey','m'],['veneer_piano_imperial_blue_mulliner','Piano Imperial Blue','m'],['veneer_piano_linen_mulliner','Piano Linen','m'],['veneer_piano_teal_mulliner','Piano Teal','m'],['veneer_wool_split_hotspur_cricket_ball','Pure Merino Wool, Hotspur / Cricket Ball','m'],['veneer_wool_split_imperial_blue_brunel','Pure Merino Wool, Imperial Blue / Brunel','m'],['veneer_wool_split_linen_portland','Pure Merino Wool, Linen / Portland','m'],['veneer_wool_split_newmarket_tan_saddle','Pure Merino Wool, Newmarket Tan / Saddle','m'],['veneer_wool_split_teal_brunel','Pure Merino Wool, Teal / Brunel','m']]},
+    {k:'hides',vi:'Da nội thất',en:'Hides',pt:[.36,.27],side:'l',ly:.2,items:['beluga','cricket_ball','imperial_blue','newmarket_tan','gravity_grey'].map(function(h){return ['hide_'+h,nm(h),'s0']}).concat(['brunel','camel','damson','glaze','hotspur','linen','portland','saddle','teal','terra'].map(function(h){return ['hide_'+h,nm(h),'o']})).concat(['artica','astro','aura','electrum','mandarin','pillar_box_red','signal_yellow','topaz_blue'].map(function(h){return ['hide_accent_'+h,nm(h)+' (accent)','m']}))}
+  ];
+  var aZ=-1, aSel=[0,0,0,0,0], touched=[0,0,0,0,0];
+  var atel=document.getElementById('atelier'), carbox=document.getElementById('carbox'), stage=document.getElementById('aStage'), svg=document.getElementById('aLines'), labels=document.getElementById('aLabels'), pop=document.getElementById('aPop');
+  function badge(c){var M=['Torcal','Torcal S','First Edition'];if(c[0]==='s')return (lang==='vi'?'Tiêu chuẩn trên ':'Standard on ')+M[+c[1]];if(c==='m')return 'by Mulliner';if(c==='p')return lang==='vi'?'Màu tiêu chuẩn':'Standard colour';if(c==='x')return lang==='vi'?'Bảng màu mở rộng':'Extended range';return lang==='vi'?'Tuỳ chọn':'Optional'}
+  function esc(t){return t.replace(/"/g,'&quot;')}
+  function renderLabels(){
+    labels.innerHTML=Z.map(function(z,i){return '<button type="button" class="zl '+z.side+(i===aZ?' on':'')+'" data-z="'+i+'" aria-expanded="'+(i===aZ)+'"><small>0'+(i+1)+(z.k==='paint'?'':' · '+z.items.length)+'</small><b>'+z[lang]+'</b></button>'}).join('');
+    document.getElementById('aHots').innerHTML=Z.map(function(z,i){return '<button type="button" class="hot'+(i===aZ?' on':'')+(touched[i]?' has':'')+'" data-z="'+i+'" aria-label="'+esc(z[lang])+'" style="left:'+(z.pt[0]*100)+'%;top:'+(z.pt[1]*100)+'%"><span class="mini'+(z.contain?' contain':'')+'">'+(z.k!=='paint'?'<img src="assets/sw/'+z.items[aSel[i]][0]+'.webp" alt="">':'')+'</span></button>'}).join('');
+    document.getElementById('aChips').innerHTML=Z.map(function(z,i){return '<button type="button" role="tab" data-z="'+i+'" aria-selected="'+(i===aZ)+'">'+z[lang]+'</button>'}).join('');
+    layoutA();
+  }
+  function layoutA(){
+    var sr=stage.getBoundingClientRect(); if(!carbox.offsetWidth)return; var cr={width:carbox.offsetWidth,height:carbox.offsetHeight};
+    var cx=carbox.offsetLeft, cy=carbox.offsetTop, paths='';
+    Z.forEach(function(z,i){
+      var hx=cx+z.pt[0]*cr.width, hy=cy+z.pt[1]*cr.height;
+      var lab=labels.querySelector('.zl[data-z="'+i+'"]'), lw=lab.offsetWidth, lh=lab.offsetHeight;
+      var ly=Math.max(0,Math.min(sr.height-lh,cy+z.ly*cr.height-lh/2));
+      var lx=z.side==='l'?Math.max(0,cx-lw-70):Math.min(sr.width-lw,cx+cr.width+70);
+      if(z.side==='l'&&lx+lw>cx-20)lx=Math.max(0,cx-lw-20);
+      lab.style.left=lx+'px'; lab.style.top=ly+'px';
+      var ax=z.side==='l'?lx+lw+12:lx-12, ay=ly+lh/2, mx=z.side==='l'?ax+24:ax-24;
+      var len=Math.abs(mx-ax)+Math.hypot(hx-mx,hy-ay);
+      paths+='<path d="M'+ax.toFixed(1)+' '+ay.toFixed(1)+' H'+mx.toFixed(1)+' L'+hx.toFixed(1)+' '+hy.toFixed(1)+'" style="--len:'+Math.ceil(len)+'" class="'+(i===aZ?'on':'')+'" data-pz="'+i+'"/>';
+    });
+    svg.innerHTML=paths; placePop();
+  }
+  function placePop(){pop.classList.toggle('paint',aZ>=0&&Z[aZ].k==='paint');if(aZ<0||mobile())return;var z=Z[aZ], sr=stage.getBoundingClientRect(), lab=labels.querySelector('.zl[data-z="'+aZ+'"]'); if(!lab)return;
+    var lr=lab.getBoundingClientRect(), pw=pop.offsetWidth, ph=pop.offsetHeight, x, y;
+    x=z.side==='l'?0:sr.width-pw;
+    y=(sr.height-ph)/2; y=Math.max(0,Math.min(sr.height-ph,y));
+    pop.style.left=x+'px'; pop.style.top=y+'px';
+    // xe lùi sang phía còn trống, thu nhỏ vừa đủ để vẫn thấy trọn xe và các điểm đã chọn
+    var gap=40, avail=sr.width-pw-gap, cw=carbox.offsetWidth, sc=Math.min(1,(avail-20)/cw), ccx=carbox.offsetLeft+cw/2, target=z.side==='l'?(pw+gap+avail/2):(avail/2);
+    carbox.style.setProperty('--sc',sc.toFixed(3)); carbox.style.setProperty('--tx',(target-ccx).toFixed(1)+'px');
+    // điểm xuất phát của hiệu ứng xoè: từ phía nhãn
+    var ox=z.side==='l'?(lr.left+lr.width/2):(lr.left+lr.width/2), oy=lr.top+lr.height/2;
+    pop.querySelectorAll('.fan button').forEach(function(b){var r=b.getBoundingClientRect();if(!r.width)return;var cx=r.left+r.width/2-(b.style.getPropertyValue('--fx')?0:0),cy=r.top+r.height/2;
+      if(!pop.classList.contains('open')){b.style.setProperty('--fx',(ox-cx)+'px');b.style.setProperty('--fy',(oy-cy)+'px')}});
+  }
+  function fitFan(){var f=pop.querySelector('.fan'); if(!f||mobile())return; var n=f.children.length, W=pop.clientWidth-2*parseFloat(getComputedStyle(pop).paddingLeft), sr=stage.getBoundingClientRect();
+    var other=pop.scrollHeight-f.offsetHeight, H=sr.height-other-4;
+    for(var s=56;s>=30;s-=2){var c=Math.floor((W+8)/(s+8)), r=Math.ceil(n/c); if(r*(s+8)-8<=H){f.style.setProperty('--sw',s+'px');return}} f.style.setProperty('--sw','30px')}
+  function renderPop(){if(aZ<0){pop.innerHTML='';return} var z=Z[aZ], it=z.items[aSel[aZ]];
+    var head='<div class="ph-head"><p class="label accent">0'+(aZ+1)+' · '+z[lang]+'</p><button type="button" class="x" data-close aria-label="'+(lang==='vi'?'Đóng':'Close')+'"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1 11 11M11 1 1 11" stroke="currentColor" stroke-width="1.2" fill="none"/></svg></button></div>';
+    if(z.k==='paint'){
+      pop.innerHTML=head+'<div class="pimg"><img src="assets/img/p43.webp" alt="'+(lang==='vi'?'Bảng màu sơn ngoại thất Torcal':'Torcal exterior colour palette')+'"></div><p class="small muted">'+(lang==='vi'?'7 màu tiêu chuẩn, cùng 2 màu hoàn toàn mới trong bảng mở rộng: Astral (bóng) và Electrum (satin). Mulliner Personal Commission có thể tạo màu riêng cho Quý khách.':'Seven standard colours, plus two completely new paints in the extended range: Astral gloss and satin Electrum. Mulliner Personal Commission can create a bespoke colour for you.')+'</p>';
+    } else {
+      pop.innerHTML=head+'<div class="pv"><div class="ph swap'+(z.contain?' contain':'')+'" id="aDet"><img class="on" src="assets/sw/'+it[0]+'.webp" alt=""><img alt=""></div><div class="nm"><b id="aName">'+it[1]+'</b><span id="aBadge">'+badge(it[2])+'</span></div></div><div class="fan'+(z.contain?' contain':'')+'">'+z.items.map(function(x,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===aSel[aZ])+'" title="'+esc(x[1])+'" style="--i:'+i+'"><img src="assets/sw/'+x[0]+'.webp" alt="'+esc(x[1])+'"></button>'}).join('')+'</div>';
+    }
+    fitFan(); placePop();
+  }
+  function selectItem(i){var z=Z[aZ]; aSel[aZ]=i; touched[aZ]=1; var it=z.items[i];
+    var hot=document.querySelector('#aHots .hot[data-z="'+aZ+'"]'); if(hot&&it[0]){hot.classList.add('has');hot.querySelector('.mini').innerHTML='<img src="assets/sw/'+it[0]+'.webp" alt="">'}
+    pop.querySelectorAll('[data-i]').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.i===i))});
+    document.getElementById('aName').textContent=it[1]; document.getElementById('aBadge').textContent=badge(it[2]);
+    var det=document.getElementById('aDet'); if(det){var ims=det.querySelectorAll('img'),on=det.querySelector('img.on'),off=on===ims[0]?ims[1]:ims[0];off.src='assets/sw/'+it[0]+'.webp';off.classList.add('on');on.classList.remove('on')}}
+  function setZone(i){
+    if(i===aZ){closePop();return}
+    aZ=i; pop.classList.remove('open');
+    stage.querySelectorAll('.zl,.hot').forEach(function(l){l.classList.toggle('on',+l.dataset.z===i)});
+    svg.querySelectorAll('path').forEach(function(p){p.classList.toggle('on',+p.dataset.pz===i)});
+    sel('#aChips','data-z',i); atel.classList.add('pop-open');
+    renderPop(); void pop.offsetWidth; requestAnimationFrame(function(){pop.classList.add('open')});
+  }
+  function closePop(){aZ=-1; pop.classList.remove('open'); atel.classList.remove('pop-open');
+    stage.querySelectorAll('.zl,.hot').forEach(function(l){l.classList.remove('on')}); svg.querySelectorAll('path').forEach(function(p){p.classList.remove('on')}); sel('#aChips','data-z',-1)}
+  stage.addEventListener('click',function(e){
+    if(e.target.closest('[data-close]')){closePop();return}
+    var it=e.target.closest('.pop [data-i]'); if(it){selectItem(+it.dataset.i);return}
+    var b=e.target.closest('[data-z]'); if(b){setZone(+b.dataset.z);return}
+    if(!e.target.closest('.pop')&&aZ>=0)closePop();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&aZ>=0)closePop()});
+  function fitSw(){fitFan()}
+  function renderTray(){renderPop()}
+
+
+  /* ---------- 15 Form ---------- */
+  var form=document.getElementById('leadForm');
+  function emailMode(){var br=form.intent.value==='brochure',l=document.getElementById('emailLab');
+    l.setAttribute('data-vi',br?'Email nhận brochure':'Email (không bắt buộc)');l.setAttribute('data-en',br?'Email for the brochure':'Email (optional)');l.textContent=l.getAttribute('data-'+lang);
+    document.getElementById('fSubmit').textContent=br?(lang==='vi'?'Nhận brochure':'Send me the brochure'):(lang==='vi'?'Gửi đăng ký':'Submit')}
+  form.addEventListener('change',function(e){if(e.target.name==='intent')emailMode()});
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-intent]');if(!a)return;form.querySelector('[value="'+a.dataset.intent+'"]').checked=true;if(a.dataset.model)form.model_interest.value=a.dataset.model;form.classList.remove('done');emailMode()});
+  form.addEventListener('submit',function(e){e.preventDefault();var ok=true;
+    function mark(inp,bad){inp.closest('.field').classList.toggle('bad',bad);if(bad)ok=false}
+    mark(form.full_name,form.full_name.value.trim().length<2);
+    mark(form.phone,!/^(0|\+84)\d{9}$/.test(form.phone.value.replace(/[\s.]/g,'')));
+    var br=form.intent.value==='brochure', em=form.email.value.trim();
+    mark(form.email,(br||em!=='')&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em));
+    mark(form.model_interest,!form.model_interest.value);
+    var cr=document.getElementById('consentRow');cr.classList.toggle('bad',!form.consent.checked);if(!form.consent.checked)ok=false;
+    if(!ok)return; var b=document.getElementById('fSubmit'); b.textContent=lang==='vi'?'Đang gửi...':'Sending...';
+    setTimeout(function(){var br=form.intent.value==='brochure',m=form.model_interest.options[form.model_interest.selectedIndex].text;
+      document.getElementById('okText').textContent=br?(lang==='vi'?('Brochure '+m+' sẽ được gửi tới '+form.email.value.trim()+' trong thời gian sớm nhất. Đội ngũ tư vấn luôn sẵn sàng khi Quý khách cần thêm thông tin.'):('The '+m+' brochure will be sent to '+form.email.value.trim()+' shortly. Our team is always here if you would like to know more.')):(lang==='vi'?('Chúng tôi đã nhận được yêu cầu tư vấn '+m+'. Đội ngũ tư vấn sẽ sớm liên hệ với Quý khách.'):('We have received your consultation request for the '+m+'. Our team will be in touch shortly.'));
+      form.classList.add('done');emailMode();var pnl=form.closest('.panel');if(pnl&&pnl.getBoundingClientRect().top<0)pnl.scrollIntoView({block:'start'})},700)});
+
+  /* ---------- Ngôn ngữ ---------- */
+  function setLang(l){lang=l;root.lang=l;ls('lang',l);
+    document.querySelectorAll('[data-vi]').forEach(function(el){el.textContent=el.getAttribute('data-'+l)});
+    document.querySelectorAll('[data-alt-vi]').forEach(function(el){el.alt=el.getAttribute('data-alt-'+l)});
+    document.querySelectorAll('[data-num]').forEach(function(el){var v=el.dataset.num;el.textContent=num(+v,v.indexOf('.')>0?1:0)});
+    document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=num(+el.dataset.count,+(el.dataset.dec||0))});
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+    renderMenu();renderV(true);renderCmp();renderP();renderD();renderW();renderT();renderLabels();renderTray(false);
+    burger.querySelector('.label').textContent=root.classList.contains('menu-open')?(l==='vi'?'Đóng':'Close'):'Menu';
+    emailMode();
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+
+  /* ---------- Header, rail, dock, reveal ---------- */
+  var secs=[].slice.call(document.querySelectorAll('.sec,.design,.foot')), hdr=document.getElementById('hdr'), dock=document.getElementById('dock'), rail=document.getElementById('rail'), tick=false;
+  secs.forEach(function(s){if(s.classList.contains('foot'))return;var a=document.createElement('a');a.href='#'+s.id;a.setAttribute('aria-label',s.dataset.name);a.title=s.dataset.name;rail.appendChild(a)});
+  var links=[].slice.call(rail.querySelectorAll('a'));
+  function onScroll(){tick=false;var hy=hdr.offsetHeight/2,mid=innerHeight/2;
+    secs.forEach(function(s,i){var r=s.getBoundingClientRect();if(r.top<=hy&&r.bottom>hy)hdr.dataset.on=s.dataset.surface;
+      if(r.top<=mid&&r.bottom>mid){rail.dataset.on=s.dataset.surface;links.forEach(function(a,k){a.setAttribute('aria-current',String(k===i))});dock.classList.toggle('hide',s.id==='enquire'||s.id==='contact')}});
+    hdr.classList.toggle('scrolled',scrollY>20); onDesign()}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  var rz; addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){fitAll();layoutA();fitSw();onScroll()},80)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('in');io.unobserve(t);
+    t.querySelectorAll('[data-count]').forEach(function(el){countTo(el,+el.dataset.count,+(el.dataset.dec||0))});
+    if(t.id==='atelier')setTimeout(layoutA,50)}})},{rootMargin:'-35% 0px -35% 0px'});
+  secs.forEach(function(s){if(s.id!=='hero')io.observe(s)});
+  requestAnimationFrame(function(){document.getElementById('hero').classList.add('in')});
+
+  /* ---------- Cuộn từng màn bằng chuột: thay CSS snap (giật với con lăn) bằng chuyển cảnh mượt có kiểm soát ---------- */
+  var mqSnap=matchMedia('(min-width:1024px) and (min-height:600px) and (min-aspect-ratio:1/1) and (pointer:fine)'), anim=null, animEnd=0, lastWheel=0, settleT;
+  function points(){var pts=[];document.querySelectorAll('main > .sec, main > .design').forEach(function(sct){var t=sct.offsetTop;pts.push(t);if(sct.classList.contains('design'))pts.push(t+innerHeight)});
+    pts.push(document.documentElement.scrollHeight-innerHeight);return pts.filter(function(v,i,a){return i===0||Math.abs(v-a[i-1])>4})}
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  function animateTo(y,dur){var y0=scrollY,dy=y-y0;if(Math.abs(dy)<2)return;cancelAnimationFrame(anim&&anim.id);var t0=performance.now(),D=dur||(RM?1:Math.min(1300,700+Math.abs(dy)/innerHeight*260));
+    anim={id:0};(function step(t){var k=Math.min(1,(t-t0)/D);window.scrollTo(0,y0+dy*ease(k));if(k<1)anim.id=requestAnimationFrame(step);else{anim=null;animEnd=performance.now()}})(t0)}
+  function curIdx(pts){var y=scrollY,best=0;pts.forEach(function(p,i){if(Math.abs(p-y)<Math.abs(pts[best]-y))best=i});return best}
+  function go(dir){var pts=points(),y=scrollY,i;
+    if(dir>0){i=pts.findIndex(function(p){return p>y+4});if(i<0)return}else{i=-1;pts.forEach(function(p,k){if(p<y-4)i=k});if(i<0)return}
+    animateTo(pts[i])}
+  function snapOn(){return mqSnap.matches&&!root.classList.contains('menu-open')&&!document.getElementById('cmp').classList.contains('open')}
+  function applyMode(){root.classList.toggle('js-snap',mqSnap.matches)}
+  applyMode(); (mqSnap.addEventListener?mqSnap.addEventListener('change',applyMode):mqSnap.addListener(applyMode));
+  addEventListener('wheel',function(e){if(!snapOn()||e.ctrlKey)return; e.preventDefault(); var now=performance.now(), gap=now-lastWheel; lastWheel=now;
+    if(anim)return; if(now-animEnd<500&&gap<160)return; if(Math.abs(e.deltaY)<2)return; go(e.deltaY>0?1:-1)},{passive:false});
+  addEventListener('keydown',function(e){if(!snapOn()||/INPUT|SELECT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)&&e.key===' ')return;
+    var k=e.key; if(/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
+    if(k==='PageDown'||k==='ArrowDown'||(k===' '&&!e.shiftKey)){e.preventDefault();if(!anim)go(1)}
+    else if(k==='PageUp'||k==='ArrowUp'||(k===' '&&e.shiftKey)){e.preventDefault();if(!anim)go(-1)}
+    else if(k==='Home'){e.preventDefault();animateTo(0)} else if(k==='End'){e.preventDefault();var p=points();animateTo(p[p.length-1])}});
+  addEventListener('scroll',function(){if(!snapOn()||anim)return;clearTimeout(settleT);settleT=setTimeout(function(){if(anim)return;var p=points(),i=curIdx(p);if(Math.abs(p[i]-scrollY)>2&&Math.abs(p[i]-scrollY)<innerHeight*.45)animateTo(p[i],600)},180)},{passive:true});
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1),t=id&&document.getElementById(id);if(!t)return;e.preventDefault();
+    var y=Math.min(t.getBoundingClientRect().top+scrollY,document.documentElement.scrollHeight-innerHeight);
+    if(mqSnap.matches)setTimeout(function(){animateTo(y)},root.classList.contains('menu-open')?0:0);else window.scrollTo({top:y,behavior:RM?'auto':'smooth'})});
+
+  setLang(ls('lang')==='en'?'en':'vi'); onScroll();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layoutA();fitSw()});
+  addEventListener('load',function(){fitAll();layoutA();fitSw()});
+})();
+</script>
+</body>
+</html>
